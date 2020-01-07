@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 import PlaceMarker from './PlaceMarker';
 
 const Container = styled.div`
-    max-width: 48rem;
+    max-width: 550px;
     border-radius: 0.5rem;
 
     padding: 10px;

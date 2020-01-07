@@ -54,7 +54,7 @@ const Links = styled.div`
     padding: 0px 25px;
 `;
 
-const Item = styled.div`
+const A = styled.a`
     -moz-osx-font-smoothing:grayscale;
     backface-visibility:hidden;
     transform:translateZ(0);
@@ -78,13 +78,13 @@ const Item = styled.div`
     }
 `;
 
-const PinkHover = styled(Item)`
+const PinkHover = styled(A)`
     :hover {
         color: hotpink;
     }
 `;
 
-const OrangeHover = styled(Item)`
+const OrangeHover = styled(A)`
     :hover {
         color: orange;
     }
@@ -132,16 +132,16 @@ const NavBar = () => {
                                 Resume
                             </Tilt>
                         </Link>*/}
-                        <Link href='/about'>
-                            <Tilt options={{ max : 55, perspective: 75 }} >
+                        <Tilt options={{ max : 55, perspective: 75 }} >
+                            <Link href='/about'>
                                 <PinkHover>About</PinkHover>
-                            </Tilt>
-                        </Link>
-                        <Link href='/contact'>
-                            <Tilt options={{ max : 55, perspective: 75 }} >
+                            </Link>
+                        </Tilt>
+                        <Tilt options={{ max : 55, perspective: 75 }} >
+                            <Link href='/contact'>
                                 <OrangeHover>Contact</OrangeHover> 
-                            </Tilt>
-                        </Link>
+                            </Link>
+                        </Tilt>
                     </Links>    
                 </MarginLeft>  
                 

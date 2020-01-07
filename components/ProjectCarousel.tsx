@@ -1,20 +1,42 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import Carousel from './Carousel';
-import PlaceMarker from './PlaceMarker';
+import CloseButton from './CloseButton';
 
 const Container = styled.div`
-    max-width: 48rem;
-    
-    border-radius: 0.5rem;
-
-    background-color: rgba(17,17,17,0.6);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    position: relative;
+    width: 100%;
 
     overflow-x: hidden;
-    overflow-y: hidden;
+`;
 
+const Center = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const SlideContainer = styled.div`
+    
+    width: ${props => props.theme.width};
+    height: 100%;
+
+    overflow-y: scroll;
+
+    display: flex;
+    justify-content: center;
+    
+    padding: 15px;
+    margin: 25px;
+
+    border-radius: 0.5rem;
+
+    background-color: rgba(15,15,15,1);
+    backdrop-filter: blur(5px);
+`;
+
+const PaddingTop = styled.div`
+    padding-top: 30px;
 `;
 
 interface ProjectCarouselProps {
@@ -25,15 +47,53 @@ interface ProjectCarouselProps {
 
 const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
     if (typeof window !== 'undefined'){
-        const { height, width } = useWindowDimensions();
-        const items = slides.map(slide => slide);
+        const [ absoluteWidth, absoluteHeight ] = useWindowDimensions();
+
+        const getWidth = (absoluteWidth: number) => {
+            if(absoluteWidth > 800)
+                return 768;
+        
+            if(absoluteWidth > 500)
+                return 480;
+
+            if(absoluteWidth > 400)
+                return 370;
+        
+            if(absoluteWidth > 350)
+                return 330;
+
+            return 300;
+        }
+        
+        const width = getWidth(absoluteWidth);
+
+        const carouselItems = slides.map(slide => (
+            <SlideContainer>
+                <div>
+                    <CloseButton onClick={onExit}/>  
+                </div>
+                <PaddingTop>
+                    {slide}    
+                </PaddingTop>
+            </SlideContainer>));
 
         return (
-            <Carousel 
-                items={items}
-                width={width}
-                height={height}
-            />
+            <ThemeProvider
+                theme={{
+                    width:`${absoluteWidth}px`,
+                }}
+            >
+                <Container>
+                    <Center>
+                        <Carousel 
+                            items={carouselItems}
+                            width={width}
+                            height={absoluteHeight}
+                            startIndex={currSlide}
+                        />  
+                    </Center>    
+                </Container>
+            </ThemeProvider>
         )
     }
     else {

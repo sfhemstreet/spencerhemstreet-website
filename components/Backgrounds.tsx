@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const KirkwoodBackground = styled.div`
     height: 100%;
-    max-height: 120vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 	position: relative;
@@ -30,7 +30,7 @@ export const KirkwoodBackground = styled.div`
 
 export const YosemiteBackground = styled.div`
     height: 100%;
-    max-height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     position: relative;
@@ -54,4 +54,29 @@ export const YosemiteBackground = styled.div`
     @media only screen and (min-width: 320px) and (max-width: 479px){
         background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url("/images/yosemiteview-400.png");
     }
+`;
+
+export const BlackBackground = styled.div`
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: '#111';
+`;
+
+export const Container = styled.div`
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0px;
+    padding: 15px;
+
+    display: block;
+`;
+
+export const BigText = styled.p`
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
 `;

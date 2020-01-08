@@ -1,28 +1,8 @@
-import { Transition } from 'react-transition-group';
+import styled from 'styled-components';
 
-const duration = 300;
+const Fade = styled.div<{state: string}>`
+    transition: all 0.5s ease-in-out;
+    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+`;
 
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-}
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered:  { opacity: 1 },
-  exiting:  { opacity: 0 },
-  exited:  { opacity: 0 },
-};
-
-const Fade = ({ in: inProp }) => (
-  <Transition in={inProp} timeout={duration}>
-    {state => (
-      <div style={{
-        ...defaultStyle,
-        ...transitionStyles[state]
-      }}>
-        I'm a fade Transition!
-      </div>
-    )}
-  </Transition>
-);
+export default Fade;

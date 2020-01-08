@@ -3,8 +3,9 @@ import { Transition } from "react-transition-group"
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ProjectCarousel from '../components/ProjectCarousel';
+import Fade from '../components/Fade';
 import { ProjectImages, ProjectSlides, A } from '../data/projectData';
-import { KirkwoodBackground, Container, BigText } from '../components/Backgrounds';
+import { KirkwoodBackground, Container } from '../components/Backgrounds';
 
 const ProjectsContainer = styled(Container)`
     display: flex;
@@ -13,9 +14,11 @@ const ProjectsContainer = styled(Container)`
     padding: 1rem;
 `;
 
-const Fade = styled.div<{state: string}>`
-    transition: all 0.5s ease-in-out;
-    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+const BigText = styled.p`
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
 `;
 
 interface HomePageState {

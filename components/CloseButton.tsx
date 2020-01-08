@@ -16,6 +16,8 @@ const Close = styled.div`
     animation-name: ${Spin};
     animation-duration: 1s;
 
+    cursor: pointer;
+
     :before {
         content: '';
         position: absolute;

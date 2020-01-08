@@ -47,7 +47,7 @@ interface ProjectCarouselProps {
 
 const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
     if (typeof window !== 'undefined'){
-        const [ absoluteWidth, absoluteHeight ] = useWindowDimensions();
+        const [ absoluteWidth ] = useWindowDimensions();
 
         const getWidth = (absoluteWidth: number) => {
             if(absoluteWidth > 800)
@@ -89,7 +89,7 @@ const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
                         <Carousel 
                             items={carouselItems}
                             width={width}
-                            height={absoluteHeight}
+                            height={800}
                             startIndex={currSlide}
                         />  
                     </Center>    

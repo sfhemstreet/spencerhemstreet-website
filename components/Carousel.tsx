@@ -25,6 +25,9 @@ interface CarouselProps {
 * @param {number} startIndex? - starting index of carousel
 */
 const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHorizontal=true, startIndex=0}) => {
+    // check start index is valid
+    startIndex = startIndex >= 0 && startIndex < items.length ? startIndex : 0; 
+    
     // Arrows   
     const [isVisible, setIsVisible] = useState(false);
     // Index

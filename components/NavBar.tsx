@@ -55,8 +55,10 @@ const Links = styled.div`
 `;
 
 const A = styled.a`
+    background-color: transparent;
+
     -moz-osx-font-smoothing:grayscale;
-    backface-visibility:hidden;
+    
     transform:translateZ(0);
     transition: all 0.25s ease-out;
 
@@ -67,7 +69,6 @@ const A = styled.a`
     padding: 20px;
 
     cursor: pointer;
-
 
     :hover,:focus{
         transform:scale(1.05);
@@ -125,27 +126,33 @@ const NavBar = () => {
                     <Logo />   
                 </PadLeft>
                 <MarginLeft>
-                    <Links >   
-                        <Tilt options={{ max : 55, perspective: 55 }}>
-                            <Link href='/'>
-                                <GreenHover>Home</GreenHover>
-                            </Link>
-                        </Tilt>
+                    <Links >
+                        <Link href='/'>
+                            <GreenHover>   
+                                <Tilt options={{ max : 55, perspective: 55 }} >
+                                    Home
+                                </Tilt>
+                            </GreenHover>
+                        </Link>
                         {/*<Link href='/resume'>
                             <Tilt options={{ max : 55, perspective: 50}} >
                                 Resume
                             </Tilt>
                         </Link>*/}
-                        <Tilt options={{ max : 55, perspective: 75 }} >
-                            <Link href='/about'>
-                                <PinkHover>About</PinkHover>
-                            </Link>
-                        </Tilt>
-                        <Tilt options={{ max : 55, perspective: 75 }} >
-                            <Link href='/contact'>
-                                <OrangeHover>Contact</OrangeHover> 
-                            </Link>
-                        </Tilt>
+                        <Link href='/about'>
+                            <PinkHover>
+                                <Tilt options={{ max : 55, perspective: 75 }} >
+                                    About 
+                                </Tilt>
+                            </PinkHover>
+                        </Link>
+                        <Link href='/contact'>
+                            <OrangeHover>
+                                <Tilt options={{ max : 55, perspective: 75 }} >
+                                    Contact
+                                </Tilt>
+                            </OrangeHover>
+                        </Link> 
                     </Links>    
                 </MarginLeft>  
             </Container>      

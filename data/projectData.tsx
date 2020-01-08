@@ -46,9 +46,13 @@ export const ProjectImages = [
     <ImgContainer key='proj_img_2'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
     <ImgContainer key='proj_img_3'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
     <ImgContainer key='proj_img_4'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
-    <ImgContainer key='proj_img_5'><Img src='/images/Alien_demo.png'       alt='demo of Alien Invasion Game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
+    <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
 ];
 
+const ProjectContainer = styled.div`
+    max-width: 100%;
+    padding: 10px;
+`;
 
 const P = styled.p`
     margin: 0.25rem 0rem;
@@ -63,6 +67,11 @@ const Flex = styled.div`
     justify-content: center;
     margin: 0.5rem;
     padding: 0.5rem;
+`;
+
+const ProjImg = styled.img`
+    max-width: 100%;
+    height: auto;
 `;
 
 export const A = styled.a`
@@ -84,7 +93,7 @@ export const A = styled.a`
  * - array of project slides
 */
 export const ProjectSlides = [
-    <div key={`ProjectSlide${0}`}>
+    <ProjectContainer key={`ProjectSlide${0}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' >Chore App</A></Bold>
         <P >
             Chore is a web based application for organizing and assigning chores in a household, apartment or group.
@@ -103,11 +112,11 @@ export const ProjectSlides = [
             Emails are sent using Twilio Send Grid's API.
         </P>
         <Flex>
-            <img src='/images/chore_demo.png' alt='demo of chore app' />    
+            <ProjImg src='/images/chore_demo.png' alt='demo of chore app' />    
         </Flex>
-    </div>,
-    <div key={`ProjectSlide${1}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Chat</A></Bold>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${1}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
         <P >
         Map-N-Weather is responsive, mobile friendly Map and Weather dashboard. Just give it coordinates. 
         </P>
@@ -119,10 +128,10 @@ export const ProjectSlides = [
         (TypeScript, React, Leaflet.js)
         </P>
         <Flex>
-            <img src='/images/mapnweather_demo.gif' alt='demo of Map-N-Weather'/>
+            <ProjImg src='/images/mapnweather_demo.gif' alt='demo of Map-N-Weather'/>
         </Flex>   
-    </div>,
-    <div key={`ProjectSlide${2}`}>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${2}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chat' >Chat</A></Bold>
         <P >
         Chat is a simple instant messager written in TypeScript that can easily fit into a website and features reuseable components. 
@@ -136,10 +145,10 @@ export const ProjectSlides = [
         (TypeScript, React, Node, WebSockets)
         </P>
         <Flex>
-            <img src='/images/chat_demo.png'  alt='demo of chat messages' />
+            <ProjImg src='/images/chat_demo.png'  alt='demo of chat messages' />
         </Flex>
-    </div>,
-    <div key={`ProjectSlide${3}`}>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${3}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
         <P >
         TraderBot is an automated CrytoCurrency trader that reads data off of multiple websockets to make trades 24/7.
@@ -152,10 +161,10 @@ export const ProjectSlides = [
         (Asyncio, WebSockets)
         </P>
         <Flex>
-            <img src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
+            <ProjImg src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
         </Flex>    
-    </div>,
-    <div key={`ProjectSlide${4}`}>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${4}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Face Recognition</A></Bold>
         <P >
         A web based application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users enter 
@@ -165,19 +174,20 @@ export const ProjectSlides = [
         (React, Node, Express, PostgreSQL)
         </P>
         <Flex>
-            <img src='/images/face_recog_demo.png' alt='demo of face recognition' />
+            <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
         </Flex>
-    </div>,
-    <div key={`ProjectSlide${5}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/Alien-invasion-js' >Alien invasion</A></Bold>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${5}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/alien-invasion-js' >Alien invasion</A></Bold>
         <P>
-            <A href='https://sfhemstreet.github.io/Alien-invasion-js/' target='_blank' rel="noopener noreferrer" >Alien Invasion </A> 
-            pays homage to the classic “Space Invaders” arcade game. Written in plain ole JavaScript.
+            Alien Invasion pays homage to the classic “Space Invaders” arcade game. Written in plain ole JavaScript.
+            <A href='https://sfhemstreet.github.io/alien-invasion-js/' target='_blank' rel="noopener noreferrer" > Play it!</A> 
         </P>
-        
         <P className='mv0' >Don't believe it's possible to win? Watch me beat it <A href="https://www.youtube.com/embed/_u-ijAS8CWo" target='_blank' rel="noopener noreferrer" >here</A></P>
         <Flex>
-            <iframe className='center' title='AlienInvasionPlayThru' width='370' height='550' src="https://sfhemstreet.github.io/Alien-invasion-js/" frameBorder="0" ></iframe>
+            <ProjImg src='/images/alieninvasion.gif' alt='play thru of ALien Invasion javascript game' />
         </Flex>
-    </div>
+    </ProjectContainer>
 ];
+
+// <iframe className='center' title='AlienInvasionPlayThru' min-width='370' width='370' max-width='370' height='550' src="https://sfhemstreet.github.io/alien-invasion-js/" frameBorder="0" ></iframe>

@@ -1,4 +1,5 @@
-import React, { FunctionComponent, useState } from 'react';
+import React from 'react';
+import { Transition } from "react-transition-group"
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ProjectCarousel from '../components/ProjectCarousel';
@@ -26,6 +27,11 @@ const BigText = styled.p`
     text-align: center;
     padding: 0.5rem;
     margin: 0;
+`;
+
+const Fade = styled.div<{state: string}>`
+    transition: all 0.5s ease-in-out;
+    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
 `;
 
 interface HomePageState {
@@ -76,19 +82,57 @@ class HomePage extends React.Component<any, HomePageState>{
         return (
             <Layout>
                 <KirkwoodBackground>
-                    <Container>
-                        { isSelected && 
-                            <ProjectCarousel onExit={this.closeProject} slides={ProjectSlides} currSlide={image}/>
-                        }
-                        <BigText>
-                            <A  target='_blank' 
-                                rel="noopener noreferrer" 
-                                href='https://github.com/sfhemstreet'  
-                            >
-                                My Projects
-                            </A>
-                        </BigText>
-                        <ProjectsContainer>{renderProjectImages}</ProjectsContainer>
+                    <Container >
+                        {/* ProjectCarousel only appears when a project is clicked */}
+                        <Transition
+                            in={isSelected && hasImagesExited}
+                            timeout={{
+                                enter: 50,
+                                exit: 500,
+                            }}
+                            onExited={this.onProjectExited}
+                            unmountOnExit 
+                            mountOnEnter
+                        >
+                            {(state: string) => (
+                                <Fade state={state}>
+                                    <ProjectCarousel 
+                                        onExit={this.closeProject} 
+                                        slides={ProjectSlides} 
+                                        currSlide={image}
+                                    />    
+                                </Fade>    
+                            )}
+                        </Transition>
+                        {/* Displays only after the ProjectCarousel has exited */}
+                        <Transition
+                            in={hasProjectExited}
+                            timeout={{
+                                appear: 100,
+                                enter: 100,
+                                exit: 500,
+                            }}
+                            onExited={this.onImagesExited}
+                            appear={true}
+                            unmountOnExit 
+                            mountOnEnter
+                        >
+                            {(state: string) => (
+                                <Fade state={state}>
+                                    <BigText>
+                                        <A  target='_blank' 
+                                            rel="noopener noreferrer" 
+                                            href='https://github.com/sfhemstreet'  
+                                        >
+                                            My Projects
+                                        </A>
+                                    </BigText>
+                                    <ProjectsContainer>
+                                        {renderProjectImages}
+                                    </ProjectsContainer>
+                                </Fade>    
+                            )}
+                        </Transition>
                     </Container>       
                 </KirkwoodBackground>
             </Layout>

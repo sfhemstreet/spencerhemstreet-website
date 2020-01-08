@@ -9,6 +9,7 @@ interface CarouselProps {
     height: number
     items: React.ReactNode[] 
     isHorizontal?: boolean
+    startIndex?: number
 }
 
 /** 
@@ -21,12 +22,13 @@ interface CarouselProps {
 * @param {number} height - Height of Carousel in px
 * @param {Array<React.ReactNode>} items - ReactNodes to be displayed 
 * @param {boolean} isHorizontal? - set items to move horizontally or vertically (default horizontal)
+* @param {number} startIndex? - starting index of carousel
 */
-const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHorizontal=true}) => {
+const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHorizontal=true, startIndex=0}) => {
     // Arrows   
     const [isVisible, setIsVisible] = useState(false);
     // Index
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(startIndex);
 
     const [x,setX] = useState(width/2);
 
@@ -46,8 +48,6 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
     function handleTouchStart(evt: React.TouchEvent<HTMLDivElement>){
         const newX = evt.changedTouches[0].pageX;
         setX(newX);
-
-        console.log('touch start', newX)
     }
 
     function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
@@ -57,8 +57,6 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
 
         if(endX > x + 20)
             handlePrev();
-
-        console.log('touch end', endX)
     }
 
     return (
@@ -70,7 +68,7 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
             }}
         >
             <TransformAnchor 
-                onMouseEnter={() => setIsVisible(true)} 
+                onMouseOver={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}

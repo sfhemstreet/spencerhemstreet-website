@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import { Transition } from "react-transition-group"
 import Layout from '../components/Layout';
 import { YosemiteBackground, Container, BigText } from '../components/Backgrounds';
 import {regexCheck, checkEmail, checkSpecial} from '../util/regexCheck';
@@ -9,14 +10,27 @@ interface Red {
     isRed: boolean
 }
 
+const Title = styled(BigText)`
+    color: white;
+`;
+
+const ContactContainer = styled(Container)`
+    padding-top: 40px;
+`;
+
 const FormContainer = styled.div`
     max-width: 30em;
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
     margin-left: auto;
     margin-right: auto;
 `;
 
+const PadTop = styled.div`
+    padding-top: 10px;
+`;
+
 const Label = styled.label`
+    color: #EEE;
     font-weight:600;
     line-height:1.5;
     font-size: 0.875rem;
@@ -30,12 +44,13 @@ const Input = styled.input<Red>`
     -moz-appearance:none;
 
     border-color: #999;
-    border-radius: 0.125rem;
+    border-radius: 0.225rem;
 
     font-weight: bold;
+    font-size: 18px;
 
     color: white;
-    background: ${props => props.isRed ? 'radial-gradient(circle, rgba(255,0,8,1) 0%, rgba(37,13,18,1) 100%)' : 'linear-gradient(90deg, rgba(181,175,175,1) 0%, rgba(147,157,161,1) 65%, rgb(47, 53, 54) 100%)'};
+    background: ${props => props.isRed ? 'radial-gradient(circle, rgba(196,100,79,0.07326680672268904) 0%, rgba(215,27,27,0.7315301120448179) 100%)' : 'radial-gradient(circle, rgba(40,44,52,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%)'};
 `;
 
 const TextArea = styled.textarea<Red>`
@@ -46,16 +61,43 @@ const TextArea = styled.textarea<Red>`
     -moz-appearance:none;
 
     border-color: #999;
-    border-radius: 0.125rem;
+    border-radius: 0.225rem;
 
     font-weight: bold;
+    font-size: 18px;
 
     color: white;
-    background: ${props => props.isRed ? 'radial-gradient(circle, rgba(255,0,8,1) 0%, rgba(37,13,18,1) 100%)' : 'linear-gradient(90deg, rgba(181,175,175,1) 0%, rgba(147,157,161,1) 65%, rgb(47, 53, 54) 100%)'};
+    background: ${props => props.isRed ? 'radial-gradient(circle, rgba(196,100,79,0.07326680672268904) 0%, rgba(215,27,27,0.7315301120448179) 100%)' : 'radial-gradient(circle, rgba(40,44,52,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%)'};
 `;
 
 const SendButton = styled.button`
+    color: white;
 
+    width: 70px;
+    height: 40px;
+
+    font-size: 14px;
+
+    border-color: #999;
+    border-radius: 0.225rem;
+
+    background: rgb(47,147,63);
+    background: radial-gradient(circle, rgba(47,147,63,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%);
+
+    -moz-osx-font-smoothing:grayscale;
+    backface-visibility:hidden;
+    transform:translateZ(0);
+    transition: all 0.25s ease-out;
+
+    :hover,:focus{
+        transform:scale(1.05);
+        background: rgb(35,185,38);
+        background: radial-gradient(circle, rgba(35,185,38,0.6) 0%, rgba(0,224,255,0.6) 100%);
+    }
+
+    :active{
+       transform:scale(.90); 
+    }
 `;
 
 const A = styled.a`
@@ -63,21 +105,31 @@ const A = styled.a`
     
     cursor: pointer;
 
-    display: inline-block;
-
-    width: 2rem;
-    height: 2rem;
-
-    border-radius: 1rem;
+    max-width: 50px;
+    max-height: 50px;
 
     background-color: white;
 
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    :hover {
+        box-shadow: 0 0 10px rgb(6, 72, 83);
+    }
+`;
+
+const GitHubA = styled(A)`
+    border-radius: 100%;
+`;
+
+const LinkedInA = styled(A)`
+    border-radius: 10%;
 `;
 
 const Img = styled.img`
-    padding: 0.25rem;
+    width: 105%;
+    height: auto;
 
     -moz-osx-font-smoothing:grayscale;
     backface-visibility:hidden;
@@ -93,7 +145,6 @@ const Img = styled.img`
     }
 `;
 
-
 const FlexContainer = styled.div`
     display: flex;
     justify-content: space-around;
@@ -102,6 +153,11 @@ const FlexContainer = styled.div`
 
     margin-left: auto;
     margin-right: auto;
+`;
+
+const Fade = styled.div<{state: string}>`
+    transition: all 0.5s ease-in-out;
+    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
 `;
 
 interface ContactProps {}
@@ -211,61 +267,65 @@ class Contact extends React.Component<ContactProps,ContactState>{
         return(
             <Layout>
                 <YosemiteBackground>
-                    <Container>
-                        <BigText>Send Me an Email</BigText>
-                        <FormContainer>
-                            <div className="mt3">
-                                <Label>Name
-                                    <Input onChange={this.onNameChange} isRed={highlightRed[0]} type="text" />
-                                </Label>
-                            </div>
-                            <div className="mt3">
-                                <Label >Email
-                                    <Input onChange={this.onEmailChange} isRed={highlightRed[1]} type="email" />
-                                </Label>
-                            </div>
-                            <div className="mv3">
-                                <Label>Subject
-                                    <Input onChange={this.onTitleChange} isRed={highlightRed[2]} type="text" />
-                                </Label>
-                            </div>
-                            <div className="mv3">
-                                <Label >Message
-                                    <TextArea onChange={this.onBodyChange} isRed={highlightRed[3]} />
-                                </Label>
-                            </div>
-                            <div className="">
-                                <input onClick={this.onSendEmail} className="b ph3 pv2 input-reset br1 b--black bg-silver grow hover-bg-blue hover-white pointer f6 dib" type="submit" value="Send"/>
-                            </div>
-                        </FormContainer>       
-                        <FlexContainer>
-                            <A  target='_blank' 
-                                rel="noopener noreferrer" 
-                                href='https://github.com/sfhemstreet' 
-                                > 
-                                <Tilt 
-                                    className="Tilt color_shadow bg-white center br2 dib w2 h2 pointer" 
-                                    options={{ max : 55 , perspective: 75 }} 
-                                    style={{ height: 50, width: 50 }} >
-                                        <Img className=' center grow ' alt="github logo" src='/images/GitHub.png'/> 
-                                </Tilt>
-                            </A>
-                            <A  target='_blank' 
-                                rel="noopener noreferrer" 
-                                href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
-                                >
-                                <Tilt 
-                                    className="Tilt bg-white color_shadow center br2 dib w2 h2 pointer" 
-                                    options={{ max : 55, perspective: 75 }} 
-                                    style={{ height: 50, width: 50 }} >
-                                        <Img className='pa1 center grow ' alt="linked in logo" src='/images/linkedIn.png'/> 
-                                </Tilt>
-                            </A>
-                        </FlexContainer>
-                    </Container>
+                    <Transition
+                        in={true}
+                        timeout={{
+                            appear: 150,
+                        }}
+                        appear={true}
+                    >
+                        {(state: string) => (
+                            <Fade state={state}>
+                                <ContactContainer>
+                                    <Title>Send Me an Email</Title>
+                                    <FormContainer>                            
+                                                <Label>Name
+                                                    <Input onChange={this.onNameChange} isRed={highlightRed[0]} type="text" />
+                                                </Label>  
+                                            <PadTop>                        
+                                                <Label >Email
+                                                    <Input onChange={this.onEmailChange} isRed={highlightRed[1]} type="email" />
+                                                </Label> 
+                                            </PadTop>  
+                                            <PadTop>                       
+                                                <Label>Subject
+                                                    <Input onChange={this.onTitleChange} isRed={highlightRed[2]} type="text" />
+                                                </Label>
+                                            </PadTop> 
+                                            <PadTop>
+                                                <Label >Message
+                                                    <TextArea onChange={this.onBodyChange} isRed={highlightRed[3]} />
+                                                </Label>
+                                            </PadTop>
+                                            <PadTop>
+                                                <SendButton onClick={this.onSendEmail} >Send</SendButton>    
+                                            </PadTop>
+                                    </FormContainer>  
+                                    <Title>Reach Out To Me On GitHub or LinkedIn</Title>     
+                                    <FlexContainer>
+                                        <Tilt options={{ max : 55 , perspective: 75 }} >
+                                            <GitHubA  target='_blank' 
+                                                rel="noopener noreferrer" 
+                                                href='https://github.com/sfhemstreet' 
+                                            >
+                                                <Img  alt="github logo" src='/images/GitHub.png'/> 
+                                            </GitHubA> 
+                                        </Tilt>
+                                        <Tilt options={{ max : 55, perspective: 75 }} >
+                                            <LinkedInA  target='_blank' 
+                                                rel="noopener noreferrer" 
+                                                href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
+                                            >                                        
+                                                <Img alt="linked in logo" src='/images/linkedIn.png'/> 
+                                            </LinkedInA>
+                                        </Tilt>
+                                    </FlexContainer>
+                                </ContactContainer>
+                            </Fade>
+                        )} 
+                    </Transition>
                 </YosemiteBackground>        
             </Layout>
-            
         )
     }
 }

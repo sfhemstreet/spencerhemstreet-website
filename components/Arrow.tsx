@@ -9,6 +9,8 @@ export const ArrowStrip = styled.div`
     width: ${props => props.theme.isHorizontal? '45px' : `${props.theme.width}px` }; 
     height: ${props => props.theme.isHorizontal? `${props.theme.height * 0.5}px` : '45px' }; 
 
+    border-radius: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,8 +86,8 @@ const Arrow = ({width, height, onClick, direction='right'}:ArrowProps) => {
                 height,
                 isHorizontal,
                 goesForward,
-                arrowColor: '6px rgba(200, 200, 200, 0.7) solid',
-                hoverArrowColor: 'red',
+                arrowColor: '6px rgba(250, 250, 250, 0.7) solid',
+                hoverArrowColor: 'purple',
                 backgroundColor: 'rgba(0,0,0,0.3)'
             }}
         >

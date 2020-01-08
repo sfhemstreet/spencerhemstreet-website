@@ -45,5 +45,5 @@ export const TransformItem = styled.div<{transform: string}>`
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: ${props => props.theme.alignItems ? props.theme.alignItems : 'center'};
 `;

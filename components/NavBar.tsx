@@ -78,6 +78,12 @@ const A = styled.a`
     }
 `;
 
+const GreenHover = styled(A)`
+    :hover {
+        color: green;
+    }
+`;
+
 const PinkHover = styled(A)`
     :hover {
         color: hotpink;
@@ -120,13 +126,11 @@ const NavBar = () => {
                 </PadLeft>
                 <MarginLeft>
                     <Links >   
-                        {/*
-                        <Link href='/'>
-                            <Tilt options={{ max : 55, perspective: 55 }}>
-                                Home
-                            </Tilt>
-                        </Link>
-                        */}
+                        <Tilt options={{ max : 55, perspective: 55 }}>
+                            <Link href='/'>
+                                <GreenHover>Home</GreenHover>
+                            </Link>
+                        </Tilt>
                         {/*<Link href='/resume'>
                             <Tilt options={{ max : 55, perspective: 50}} >
                                 Resume
@@ -144,7 +148,6 @@ const NavBar = () => {
                         </Tilt>
                     </Links>    
                 </MarginLeft>  
-                
             </Container>      
         </ThemeProvider>
         

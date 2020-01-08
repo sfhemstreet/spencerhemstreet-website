@@ -4,29 +4,13 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ProjectCarousel from '../components/ProjectCarousel';
 import { ProjectImages, ProjectSlides, A } from '../data/projectData';
-import { KirkwoodBackground } from '../components/Backgrounds';
-
-const Container = styled.div`
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0px;
-    padding: 15px;
-
-    display: block;
-`;
+import { KirkwoodBackground, Container, BigText } from '../components/Backgrounds';
 
 const ProjectsContainer = styled(Container)`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 1rem;
-`;
-
-const BigText = styled.p`
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0;
 `;
 
 const Fade = styled.div<{state: string}>`
@@ -87,7 +71,7 @@ class HomePage extends React.Component<any, HomePageState>{
                         <Transition
                             in={isSelected && hasImagesExited}
                             timeout={{
-                                enter: 50,
+                                enter: 150,
                                 exit: 500,
                             }}
                             onExited={this.onProjectExited}
@@ -108,8 +92,8 @@ class HomePage extends React.Component<any, HomePageState>{
                         <Transition
                             in={hasProjectExited}
                             timeout={{
-                                appear: 100,
-                                enter: 100,
+                                appear: 150,
+                                enter: 150,
                                 exit: 500,
                             }}
                             onExited={this.onImagesExited}

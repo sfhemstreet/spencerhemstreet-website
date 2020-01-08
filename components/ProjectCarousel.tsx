@@ -81,6 +81,7 @@ const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
             <ThemeProvider
                 theme={{
                     width:`${absoluteWidth}px`,
+                    alignItems:'flex-start'
                 }}
             >
                 <Container>

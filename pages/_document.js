@@ -34,7 +34,8 @@ export default class MyDocument extends Document {
                     margin: '0',
                     padding: '0',
                     fontFamily: 'Rubik, roboto, arial',
-                    backgroundColor: '#111'
+                    backgroundColor: '#111',
+                    color: "#ddd",
                 }}>
                     <Main />
                     <NextScript />

@@ -8,6 +8,10 @@ interface PhotoProps {
     height: string
 }
 
+const Margin = styled.div`
+    margin: 15px 0px;
+`;
+
 const PhotoContainer = styled.div<PhotoProps>`
     width: ${props => props.width};
     height: ${props => props.height};
@@ -22,7 +26,7 @@ const Img = styled.img`
 
     max-width: 100%;
     height: auto;
-    cursor: pointer;
+    max-height: 300px;
 `;
 
 interface PhotoPreviewProps {
@@ -38,29 +42,32 @@ const PhotoPreview: FunctionComponent<PhotoPreviewProps> = ({photos}) => {
 
         const getWidthHeight = (absoluteWidth: number) => {
             if(absoluteWidth > 500)
-                return {width:480, height:600};
+                return {width:480, height:300};
 
             if(absoluteWidth > 400)
-                return {width:370, height:462};
+                return {width:370, height:300};
 
-            return {width:300, height:375};
+            return {width:300, height:300};
         }
         
         const {width, height} = getWidthHeight(absoluteWidth);
-        const items = photos.map(photo => <Img onClick={() => console.log(photo.alt)} src={photo.src} alt={photo.alt} />);
+        const items = photos.map(photo => <Img src={photo.src} alt={photo.alt} />);
 
         return (
-            <PhotoContainer
-                width={`${width}px`}
-                height={`${height}px`}
-            >
-                <Slide
-                    isHorizontal={true}
-                    width={width}
-                    height={height}
-                    items={items}
-                />
-            </PhotoContainer>  
+            <Margin>
+                <PhotoContainer
+                    width={`${width}px`}
+                    height={`${height}px`}
+                >
+                    <Slide
+                        isHorizontal={true}
+                        width={width}
+                        height={height}
+                        items={items}
+                        startIndex={1}
+                    />
+                </PhotoContainer>    
+            </Margin>
         )
     }
     else {

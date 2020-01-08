@@ -10,6 +10,8 @@ const ImgContainer = styled.div`
     transform:translateZ(0);
     transition: transform 0.25s ease-out;
 
+    cursor: pointer;
+
     :hover,:focus{
         transform:scale(1.05);
     }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
 import Layout from '../components/Layout';
+import Fade from '../components/Fade';
 import PhotoSlideShow from '../components/PhotoSlideShow';
 import { BlackBackground } from '../components/Backgrounds';
 
@@ -16,23 +17,17 @@ const Container = styled.div`
 const P = styled.p` 
     max-width: 25em;
 
-    padding: 10px;
-
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-`;
-
-const Fade = styled.div<{state: string}>`
-    transition: all 0.5s ease-in-out;
-    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
 `;
 
 function About(){
     
     const images = [
         {src: '/images/spencer-drinkin-thailand.png', alt:'Enjoying a drink after a meal in Bangkok'},
+        {src:'/images/highplainsdrifter_2018.png', alt:'Climbing in Bishop, CA'},
         {src:'/images/boulderatbeach.png', alt:'Climbing at Stinson Beach, CA'},
-        {src:'/images/highplainsdrifter_2018.png', alt:'Climbing in Bishop, CA'}
     ];
     
     return (
@@ -45,15 +40,17 @@ function About(){
                     }}
                     appear={true}
                 >
-                    {(state: string) => (
+                {(state: string) => (
                     <Fade state={state}>
                         <Container>
-                            <PhotoSlideShow photos={images} />
+                            <P>
+                                Hello! I'm Spencer, and I am Front-End developer based out of San Francisco.
+                            </P>
                             <P >
-                                I am rock climbing (bouldering mostly), 
-                                people watching on public transit, playing guitar, eating Japanese curry rice, 
-                                and watching scary movies.  
-                            </P>    
+                                In my free time I enjoy rock climbing (bouldering mostly), 
+                                playing guitar, hiking, and watching scary movies.  
+                            </P>  
+                            <PhotoSlideShow photos={images} />  
                         </Container>
                     </Fade>)
                 }
@@ -61,7 +58,6 @@ function About(){
             </BlackBackground>     
         </Layout>
     )
-    
 }
 
 export default About;

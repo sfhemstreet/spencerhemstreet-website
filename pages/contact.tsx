@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 import React from 'react';
+import Tilt from 'react-tilt';
 import { Transition } from "react-transition-group"
 import Layout from '../components/Layout';
-import { YosemiteBackground, Container, BigText } from '../components/Backgrounds';
+import Fade from '../components/Fade';
+import { YosemiteBackground, Container } from '../components/Backgrounds';
 import {regexCheck, checkEmail, checkSpecial} from '../util/regexCheck';
-import Tilt from 'react-tilt';
+import sendEmail from '../API/sendEmail';
 
 interface Red {
     isRed: boolean
 }
 
-const Title = styled(BigText)`
+const Title = styled.p`
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
+
     color: white;
 `;
 
@@ -67,6 +74,7 @@ const TextArea = styled.textarea<Red>`
     font-size: 18px;
 
     color: white;
+    
     background: ${props => props.isRed ? 'radial-gradient(circle, rgba(196,100,79,0.07326680672268904) 0%, rgba(215,27,27,0.7315301120448179) 100%)' : 'radial-gradient(circle, rgba(40,44,52,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%)'};
 `;
 
@@ -88,6 +96,8 @@ const SendButton = styled.button`
     backface-visibility:hidden;
     transform:translateZ(0);
     transition: all 0.25s ease-out;
+
+    cursor: pointer;
 
     :hover,:focus{
         transform:scale(1.05);
@@ -145,7 +155,7 @@ const Img = styled.img`
     }
 `;
 
-const FlexContainer = styled.div`
+const FlexBetween = styled.div`
     display: flex;
     justify-content: space-around;
     padding: 2rem;
@@ -155,9 +165,32 @@ const FlexContainer = styled.div`
     margin-right: auto;
 `;
 
-const Fade = styled.div<{state: string}>`
-    transition: all 0.5s ease-in-out;
-    opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
+const FlexCenter = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 442px;
+`;
+
+const TitleTilt = styled(Title)`
+    border-radius: 0.225rem;
+    background: radial-gradient(circle, rgba(47,147,63,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%);
+`;
+
+const ErrorMesage = styled(Title)`
+    border-radius: 0.225rem;
+    background: rgba(215,27,27,0.7315301120448179);
+    max-width: 30em;
+
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+const Copy = styled.span`
+    text-decoration: underline;
+
+    cursor: pointer;
 `;
 
 interface ContactProps {}
@@ -168,6 +201,7 @@ interface ContactState {
     title : string
     body : string
     highlightRed : boolean[]
+    emailSent: null | boolean
 }
 
 class Contact extends React.Component<ContactProps,ContactState>{
@@ -178,7 +212,8 @@ class Contact extends React.Component<ContactProps,ContactState>{
             email : '',
             title : '',
             body : '',
-            highlightRed : new Array(4).fill(false)
+            highlightRed : new Array(4).fill(false),
+            emailSent: null
         }
     }
     
@@ -214,7 +249,7 @@ class Contact extends React.Component<ContactProps,ContactState>{
         this.setState({ body : event.target.value, highlightRed : hlr})
     }
     
-    onSendEmail = () => {
+    onSend = async() => {
         const {name,email,title,body, highlightRed} = this.state;
         let hlr = [...highlightRed];
         
@@ -234,36 +269,29 @@ class Contact extends React.Component<ContactProps,ContactState>{
 
         // Only sends if input is valid
         if(!hlr.includes(true)){
-            fetch('https://mysterious-mountain-40721.herokuapp.com/email', { 
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify({
-                    name : name, 
-                    email : email,
-                    title : title, 
-                    body : body
-                })
-            })
-            .then(response => response.json())
-            .then(res => {
-                if(res === 'Success'){
-                    console.log('emailed');
-                }
-                else{
-                    // Server error
-                }
-            })
-            .catch(error => {
-                // failed to fetch
-            });
+            const success = await sendEmail({name, email, title, body});
+
+            this.setState({ emailSent: success });
+        }
+    }
+
+    copyToClipBoard = async(event: React.MouseEvent<HTMLSpanElement>) => {
+        if(!navigator.clipboard) {
+            // Clipboard API not available
+            return
+        }
+        const evt = event.target as HTMLSpanElement;
+
+        const text = evt.innerText;
+        try {
+            await navigator.clipboard.writeText(text)
+        } catch (err) {
+            console.error('Failed to copy!', err)
         }
     }
 
     render(){
-        const {highlightRed} = this.state;
+        const { highlightRed, emailSent } = this.state;
         return(
             <Layout>
                 <YosemiteBackground>
@@ -274,55 +302,130 @@ class Contact extends React.Component<ContactProps,ContactState>{
                         }}
                         appear={true}
                     >
-                        {(state: string) => (
-                            <Fade state={state}>
-                                <ContactContainer>
-                                    <Title>Send Me an Email</Title>
-                                    <FormContainer>                            
-                                                <Label>Name
-                                                    <Input onChange={this.onNameChange} isRed={highlightRed[0]} type="text" />
-                                                </Label>  
+                    {(state: string) => (
+                        <Fade state={state}>
+                            <ContactContainer>
+
+                                {/* Only Display if email has not been sent or was unsuccesful */}
+                                {<Transition
+                                    in={(emailSent === null || emailSent === false)}
+                                    timeout={{
+                                        exit: 300
+                                    }}
+                                    unmountOnExit 
+                                    mountOnEnter
+                                >
+                                {(state: string) => (
+                                    <Fade state={state}>
+                                        <Title>Send Me an Email</Title>
+                                        <FormContainer>                            
+                                            <Label>Name
+                                                <Input 
+                                                    onChange={this.onNameChange} 
+                                                    isRed={highlightRed[0]} 
+                                                    type="text" 
+                                                />
+                                            </Label>  
                                             <PadTop>                        
                                                 <Label >Email
-                                                    <Input onChange={this.onEmailChange} isRed={highlightRed[1]} type="email" />
+                                                    <Input 
+                                                        onChange={this.onEmailChange} 
+                                                        isRed={highlightRed[1]} 
+                                                        type="email" 
+                                                    />
                                                 </Label> 
                                             </PadTop>  
                                             <PadTop>                       
                                                 <Label>Subject
-                                                    <Input onChange={this.onTitleChange} isRed={highlightRed[2]} type="text" />
+                                                    <Input 
+                                                        onChange={this.onTitleChange} 
+                                                        isRed={highlightRed[2]} 
+                                                        type="text" 
+                                                    />
                                                 </Label>
                                             </PadTop> 
                                             <PadTop>
                                                 <Label >Message
-                                                    <TextArea onChange={this.onBodyChange} isRed={highlightRed[3]} />
+                                                    <TextArea 
+                                                        onChange={this.onBodyChange} 
+                                                        isRed={highlightRed[3]} 
+                                                    />
                                                 </Label>
                                             </PadTop>
                                             <PadTop>
-                                                <SendButton onClick={this.onSendEmail} >Send</SendButton>    
+                                                <SendButton onClick={this.onSend} >
+                                                    Send
+                                                </SendButton>    
                                             </PadTop>
-                                    </FormContainer>  
-                                    <Title>Reach Out To Me On GitHub or LinkedIn</Title>     
-                                    <FlexContainer>
-                                        <Tilt options={{ max : 55 , perspective: 75 }} >
-                                            <GitHubA  target='_blank' 
-                                                rel="noopener noreferrer" 
-                                                href='https://github.com/sfhemstreet' 
-                                            >
-                                                <Img  alt="github logo" src='/images/GitHub.png'/> 
-                                            </GitHubA> 
-                                        </Tilt>
-                                        <Tilt options={{ max : 55, perspective: 75 }} >
-                                            <LinkedInA  target='_blank' 
-                                                rel="noopener noreferrer" 
-                                                href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
-                                            >                                        
-                                                <Img alt="linked in logo" src='/images/linkedIn.png'/> 
-                                            </LinkedInA>
-                                        </Tilt>
-                                    </FlexContainer>
-                                </ContactContainer>
-                            </Fade>
-                        )} 
+                                        </FormContainer>  
+                                    </Fade>
+                                )}
+                                </Transition>}
+
+                                {/* Only Display if email was successfully sent */}
+                                {<Transition
+                                    in={emailSent}
+                                    timeout={{
+                                        enter: 350,
+                                    }}
+                                    unmountOnExit 
+                                    mountOnEnter
+                                >
+                                {(state: string) => (
+                                    <Fade state={state}>
+                                        <FlexCenter>
+                                            <Tilt options={{ max : 55 , perspective: 75 }}>
+                                                <TitleTilt>
+                                                    Email Sent!    
+                                                </TitleTilt>
+                                            </Tilt>
+                                        </FlexCenter>
+                                    </Fade>
+                                )}
+                                </Transition>}
+
+                                {/* Only display if unsuccessful */}
+                                {<Transition
+                                    in={emailSent === false}
+                                    timeout={{
+                                        enter: 350,
+                                        exit: 300
+                                    }}
+                                    unmountOnExit 
+                                    mountOnEnter
+                                >
+                                {(state: string) => (
+                                    <Fade state={state}>
+                                        <ErrorMesage>
+                                            Error sending email... you can reach me at  
+                                            <Copy onClick={this.copyToClipBoard}> spencerhemstreet@gmail.com</Copy>
+                                        </ErrorMesage>
+                                    </Fade>
+                                )}
+                                </Transition>}
+
+                                <Title>Reach Out To Me On GitHub or LinkedIn</Title>     
+                                <FlexBetween>
+                                    <Tilt options={{ max : 55 , perspective: 75 }} >
+                                        <GitHubA  target='_blank' 
+                                            rel="noopener noreferrer" 
+                                            href='https://github.com/sfhemstreet' 
+                                        >
+                                            <Img  alt="github logo" src='/images/GitHub.png'/> 
+                                        </GitHubA> 
+                                    </Tilt>
+                                    <Tilt options={{ max : 55, perspective: 75 }} >
+                                        <LinkedInA  target='_blank' 
+                                            rel="noopener noreferrer" 
+                                            href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
+                                        >                                        
+                                            <Img alt="linked in logo" src='/images/linkedIn.png'/> 
+                                        </LinkedInA>
+                                    </Tilt>
+                                </FlexBetween>
+                            </ContactContainer>
+                        </Fade>
+                    )} 
                     </Transition>
                 </YosemiteBackground>        
             </Layout>

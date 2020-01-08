@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import Link from 'next/link'
 import Tilt from 'react-tilt';
 
+const Container = styled.div`
+    display: block;
+    transform: translateZ(100px);
+`;
+
 const Img = styled.img`
     border-radius: 100%;
     
@@ -9,6 +14,8 @@ const Img = styled.img`
     backface-visibility:hidden;
     transform:translateZ(0);
     transition: all 0.25s ease-out;
+
+    transform-style: preserve-3d;
 
     cursor: pointer;
 
@@ -27,13 +34,17 @@ const Img = styled.img`
 
 const Logo = () => {
     return(
-        <Tilt  
-            options={{ max : 55 }} 
-            style={{ height: 50, width: 50 }} >
+        <Container>
+            <Tilt  
+                options={{ max : 55, perspective: 75 }} 
+                style={{ height: 50, width: 50 }} 
+                className="Tilt"
+            >
                 <Link href='/' >
-                    <Img alt="SH" src="/images/logo.png"/> 
+                    <Img alt="SH" src="/images/logo.png" />
                 </Link>
-        </Tilt>
+            </Tilt>
+        </Container>
     )
 }
 

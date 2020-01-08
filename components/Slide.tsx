@@ -9,6 +9,7 @@ interface SlideProps {
     height: number
     items: React.ReactNode[] 
     isHorizontal?: boolean
+    startIndex?: number
 }
 
 /** 
@@ -21,15 +22,19 @@ interface SlideProps {
 * @param {number} height - Height of Slide in px
 * @param {Array<React.ReactNode>} items - ReactNodes to be displayed 
 * @param {boolean} isHorizontal? - set items to move horizontally or vertically (default horizontal)
+* @param {number} startIndex? - index of item to start slide on
 */
-const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal=true}) => {
-    // Arrows   
+const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal=true, startIndex=0}) => {
+    // check start index is valid
+    startIndex = startIndex >= 0 && startIndex < items.length ? startIndex : 0; 
+    
+    // Arrow visibility 
     const [isVisible, setIsVisible] = useState(false);
-    // Index
-    const [index, setIndex] = useState(0);
+    // Index of slide 
+    const [index, setIndex] = useState(startIndex);
     // ref to move 
     const slide = useRef<HTMLDivElement>(null);
-    // x for touch calculations
+    // x-coord for touch calculations
     const [x,setX] = useState(width/2);
 
     const translateFn = isHorizontal ? 'translateX' : 'translateY';

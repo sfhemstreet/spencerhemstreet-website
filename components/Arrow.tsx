@@ -18,6 +18,8 @@ export const ArrowStrip = styled.div`
 
     z-index: 200;
 
+    cursor: pointer;
+
     :hover {
         background-color: ${props => props.theme.backgroundColor};
         backdrop-filter: blur(5px);

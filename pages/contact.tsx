@@ -4,6 +4,7 @@ import Tilt from 'react-tilt';
 import { Transition } from "react-transition-group"
 import Layout from '../components/Layout';
 import Fade from '../components/Fade';
+import Loading from '../components/Loading';
 import { YosemiteBackground, Container } from '../components/Backgrounds';
 import {regexCheck, checkEmail, checkSpecial} from '../util/regexCheck';
 import sendEmail from '../API/sendEmail';
@@ -13,7 +14,7 @@ interface Red {
 }
 
 const Title = styled.p`
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
     padding: 0.5rem;
     margin: 0;
@@ -50,8 +51,11 @@ const Input = styled.input<Red>`
     -webkit-appearance:none;
     -moz-appearance:none;
 
-    border-color: #999;
+    background-clip: padding-box;
+
+    border: 1px solid #999;
     border-radius: 0.225rem;
+    
 
     font-weight: bold;
     font-size: 18px;
@@ -67,7 +71,9 @@ const TextArea = styled.textarea<Red>`
     -webkit-appearance:none;
     -moz-appearance:none;
 
-    border-color: #999;
+    background-clip: padding-box;
+
+    border: 1px solid #999;
     border-radius: 0.225rem;
 
     font-weight: bold;
@@ -86,7 +92,10 @@ const SendButton = styled.button`
 
     font-size: 14px;
 
-    border-color: #999;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+
+    border: 1px solid #999;
     border-radius: 0.225rem;
 
     background: rgb(47,147,63);
@@ -155,6 +164,10 @@ const Img = styled.img`
     }
 `;
 
+const SocialContainer = styled.div`
+    margin-top: 40px;
+`;
+
 const FlexBetween = styled.div`
     display: flex;
     justify-content: space-around;
@@ -179,9 +192,12 @@ const TitleTilt = styled(Title)`
 `;
 
 const ErrorMesage = styled(Title)`
+
     border-radius: 0.225rem;
     background: rgba(215,27,27,0.7315301120448179);
     max-width: 30em;
+
+    padding: 20px 20px;
 
     margin-left: auto;
     margin-right: auto;
@@ -201,7 +217,7 @@ interface ContactState {
     title : string
     body : string
     highlightRed : boolean[]
-    emailSent: null | boolean
+    emailStatus: string
 }
 
 class Contact extends React.Component<ContactProps,ContactState>{
@@ -213,7 +229,7 @@ class Contact extends React.Component<ContactProps,ContactState>{
             title : '',
             body : '',
             highlightRed : new Array(4).fill(false),
-            emailSent: null
+            emailStatus: 'writing',
         }
     }
     
@@ -269,9 +285,17 @@ class Contact extends React.Component<ContactProps,ContactState>{
 
         // Only sends if input is valid
         if(!hlr.includes(true)){
+            // set status to loading, then update status when we get result
+            this.setState({ emailStatus: 'loading' });
+
             const success = await sendEmail({name, email, title, body});
 
-            this.setState({ emailSent: success });
+            if(success){
+                this.setState({ emailStatus: 'success' });
+            }
+            else{
+                this.setState({ emailStatus: 'failed' });
+            }    
         }
     }
 
@@ -286,12 +310,12 @@ class Contact extends React.Component<ContactProps,ContactState>{
         try {
             await navigator.clipboard.writeText(text)
         } catch (err) {
-            console.error('Failed to copy!', err)
+            //console.error('Failed to copy!', err)
         }
     }
 
     render(){
-        const { highlightRed, emailSent } = this.state;
+        const { highlightRed, emailStatus } = this.state;
         return(
             <Layout>
                 <YosemiteBackground>
@@ -306,9 +330,9 @@ class Contact extends React.Component<ContactProps,ContactState>{
                         <Fade state={state}>
                             <ContactContainer>
 
-                                {/* Only Display if email has not been sent or was unsuccesful */}
-                                {<Transition
-                                    in={(emailSent === null || emailSent === false)}
+                                {/* Only Display if email has not been sent */}
+                                <Transition
+                                    in={emailStatus === 'writing'}
                                     timeout={{
                                         exit: 300
                                     }}
@@ -360,11 +384,30 @@ class Contact extends React.Component<ContactProps,ContactState>{
                                         </FormContainer>  
                                     </Fade>
                                 )}
-                                </Transition>}
+                                </Transition>
+
+                                {/* Only display if email is loading */}
+                                <Transition
+                                    in={emailStatus === 'loading'}
+                                    timeout={{
+                                        enter: 100,
+                                        exit: 350
+                                    }}
+                                    unmountOnExit 
+                                    mountOnEnter
+                                >
+                                {(state: string) => (
+                                    <Fade state={state}>
+                                        <FlexCenter>
+                                            <Loading />
+                                        </FlexCenter>
+                                    </Fade>
+                                )}
+                                </Transition>
 
                                 {/* Only Display if email was successfully sent */}
-                                {<Transition
-                                    in={emailSent}
+                                <Transition
+                                    in={emailStatus === 'success'}
                                     timeout={{
                                         enter: 350,
                                     }}
@@ -382,11 +425,11 @@ class Contact extends React.Component<ContactProps,ContactState>{
                                         </FlexCenter>
                                     </Fade>
                                 )}
-                                </Transition>}
+                                </Transition>
 
                                 {/* Only display if unsuccessful */}
-                                {<Transition
-                                    in={emailSent === false}
+                                <Transition
+                                    in={emailStatus === 'failed'}
                                     timeout={{
                                         enter: 350,
                                         exit: 300
@@ -396,34 +439,38 @@ class Contact extends React.Component<ContactProps,ContactState>{
                                 >
                                 {(state: string) => (
                                     <Fade state={state}>
-                                        <ErrorMesage>
-                                            Error sending email... you can reach me at  
-                                            <Copy onClick={this.copyToClipBoard}> spencerhemstreet@gmail.com</Copy>
-                                        </ErrorMesage>
+                                        <FlexCenter>
+                                            <ErrorMesage>
+                                                Error sending email... you can reach me at  
+                                                <Copy onClick={this.copyToClipBoard}> spencerhemstreet@gmail.com</Copy>
+                                            </ErrorMesage>    
+                                        </FlexCenter>
                                     </Fade>
                                 )}
-                                </Transition>}
+                                </Transition>
 
-                                <Title>Reach Out To Me On GitHub or LinkedIn</Title>     
-                                <FlexBetween>
-                                    <Tilt options={{ max : 55 , perspective: 75 }} >
-                                        <GitHubA  target='_blank' 
-                                            rel="noopener noreferrer" 
-                                            href='https://github.com/sfhemstreet' 
-                                        >
-                                            <Img  alt="github logo" src='/images/GitHub.png'/> 
-                                        </GitHubA> 
-                                    </Tilt>
-                                    <Tilt options={{ max : 55, perspective: 75 }} >
-                                        <LinkedInA  target='_blank' 
-                                            rel="noopener noreferrer" 
-                                            href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
-                                        >                                        
-                                            <Img alt="linked in logo" src='/images/linkedIn.png'/> 
-                                        </LinkedInA>
-                                    </Tilt>
-                                </FlexBetween>
                             </ContactContainer>
+                            <SocialContainer>
+                                    <Title>Reach Out To Me On GitHub or LinkedIn</Title>     
+                                    <FlexBetween>
+                                        <Tilt options={{ max : 55 , perspective: 75 }} >
+                                            <GitHubA  target='_blank' 
+                                                rel="noopener noreferrer" 
+                                                href='https://github.com/sfhemstreet' 
+                                            >
+                                                <Img  alt="github logo" src='/images/GitHub.png'/> 
+                                            </GitHubA> 
+                                        </Tilt>
+                                        <Tilt options={{ max : 55, perspective: 75 }} >
+                                            <LinkedInA  target='_blank' 
+                                                rel="noopener noreferrer" 
+                                                href='https://www.linkedin.com/in/spencer-hemstreet-094331177/' 
+                                            >                                        
+                                                <Img alt="linked in logo" src='/images/linkedIn.png'/> 
+                                            </LinkedInA>
+                                        </Tilt>
+                                    </FlexBetween>    
+                                </SocialContainer>
                         </Fade>
                     )} 
                     </Transition>

@@ -28,6 +28,7 @@ export default class MyDocument extends Document {
                 <Head>
                     {/* Step 5: Output the styles in the head  */}
                     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"></link>
+                    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
                     {this.props.styleTags}
                 </Head>
                 <body style={{

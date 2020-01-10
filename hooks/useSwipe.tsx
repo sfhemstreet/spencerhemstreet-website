@@ -28,16 +28,12 @@ export default function useSwipe(ref: React.RefObject<HTMLDivElement>, onSwipeLe
             // if the touch end is less than start and the touches y is in range swipe right
             if(x < coords.x - MIN_X_DISTANCE && y < coords.y + MAX_Y_DISTANCE && y > coords.y - MAX_Y_DISTANCE){
                 onSwipeRight();
-                console.log('right')
             }
                 
-
             // if the touch end is greater than start and the touches y is in range swipe left
             if(x > coords.x + MIN_X_DISTANCE && y < coords.y + MAX_Y_DISTANCE && y > coords.y - MAX_Y_DISTANCE){
                 onSwipeLeft();
-                console.log('left')
             }
-                
         };
 
         element.addEventListener('touchstart', handleTouchStart);

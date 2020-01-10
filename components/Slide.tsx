@@ -36,9 +36,8 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     // ref to move 
     const slide = useRef<HTMLDivElement>(null);
 
-    // touch gestures
-    const touchRef = useRef<HTMLDivElement>(null);
-    useSwipe(touchRef, handlePrev, handleNext);
+    
+    useSwipe(slide, handlePrev, handleNext);
 
     const translateFn = isHorizontal ? 'translateX' : 'translateY';
     const cellSize = isHorizontal ? width : height;
@@ -78,7 +77,6 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
             <TransformAnchor 
                 onMouseEnter={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
-                ref={touchRef}
             >
                 {isVisible && 
                     <>

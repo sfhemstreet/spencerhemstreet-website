@@ -107,7 +107,7 @@ var KirkwoodBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 var YosemiteBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__YosemiteBackground",
   componentId: "sui7pg-1"
-})(["height:100%;min-height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
+})(["height:100%;height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
 var BlackBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__BlackBackground",
   componentId: "sui7pg-2"
@@ -192,6 +192,89 @@ var Layout = function Layout(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./components/Loading.tsx":
+/*!********************************!*\
+  !*** ./components/Loading.tsx ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/spencerhemstreet/Documents/Coding/NextPract/second/sfhemstreet/components/Loading.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var Spinner = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Loading__Spinner",
+  componentId: "nheh4f-0"
+})(["width:30px;height:30px;margin:100px auto;position:relative;"]);
+var ball = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Loading__ball",
+  componentId: "nheh4f-1"
+})(["height:50px;width:50px;left:50%;top:50%;background:rgba( 0,255,0,.5);border-radius:50%;float:left;position:absolute;"]);
+var ball1 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:-100%;left:200%;background:rgba( 127,127,0,.5);}100%{top:50%;left:100%;background:rgba( 0,255,0,.5);z-index:2;}"]);
+var ball2 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:200%;left:200%;background:rgba( 0,255,255,.5);}100%{top:100%;left:50%;background:rgba( 0,0,255,.5);z-index:1;}"]);
+var ball3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:200%;left:-100%;background:rgba( 255,0,255,.5);}100%{top:50%;left:0%;background:rgba( 255,255,0,.5);z-index:2;}"]);
+var ball4 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:-100%;left:-100%;background:rgba( 255,127,0,.5);}100%{top:0%;left:50%;background:rgba( 255,0,0,.5);z-index:1;}"]);
+var Ball_1 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_1",
+  componentId: "nheh4f-2"
+})(["background:rgba( 255,0,0,.5);top:0;left:50%;animation:", " 1s 0s ease infinite;z-index:1;"], ball1);
+var Ball_2 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_2",
+  componentId: "nheh4f-3"
+})(["background:rgba( 0,255,0,.5);top:50%;left:100%;animation:", " 1s 0s ease infinite;z-index:2;"], ball2);
+var Ball_3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_3",
+  componentId: "nheh4f-4"
+})(["background:rgba( 0,0,255,.5);top:100%;left:50%;animation:", " 1s 0s ease infinite;z-index:1;"], ball3);
+var Ball_4 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_4",
+  componentId: "nheh4f-5"
+})(["background:rgba( 255,255,0,.5);top:50%;left:0%;animation:", " 1s 0s ease infinite;z-index:2;"], ball4);
+
+var Loading = function Loading() {
+  return __jsx(Spinner, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
+  }, __jsx(Ball_1, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114
+    },
+    __self: this
+  }), __jsx(Ball_2, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115
+    },
+    __self: this
+  }), __jsx(Ball_3, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116
+    },
+    __self: this
+  }), __jsx(Ball_4, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
 
 /***/ }),
 
@@ -14909,9 +14992,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_transition_group__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-transition-group */ "./node_modules/react-transition-group/esm/index.js");
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.tsx");
 /* harmony import */ var _components_Fade__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/Fade */ "./components/Fade.tsx");
-/* harmony import */ var _components_Backgrounds__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Backgrounds */ "./components/Backgrounds.tsx");
-/* harmony import */ var _util_regexCheck__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../util/regexCheck */ "./util/regexCheck.tsx");
-/* harmony import */ var _API_sendEmail__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../API/sendEmail */ "./API/sendEmail.tsx");
+/* harmony import */ var _components_Loading__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/Loading */ "./components/Loading.tsx");
+/* harmony import */ var _components_Backgrounds__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/Backgrounds */ "./components/Backgrounds.tsx");
+/* harmony import */ var _util_regexCheck__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../util/regexCheck */ "./util/regexCheck.tsx");
+/* harmony import */ var _API_sendEmail__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../API/sendEmail */ "./API/sendEmail.tsx");
 
 
 
@@ -14932,11 +15016,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement;
 
 
 
+
 var Title = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].p.withConfig({
   displayName: "contact__Title",
   componentId: "lqhh94-0"
-})(["font-size:1.5rem;text-align:center;padding:0.5rem;margin:0;color:white;"]);
-var ContactContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(_components_Backgrounds__WEBPACK_IMPORTED_MODULE_15__["Container"]).withConfig({
+})(["font-size:1.2rem;text-align:center;padding:0.5rem;margin:0;color:white;"]);
+var ContactContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(_components_Backgrounds__WEBPACK_IMPORTED_MODULE_16__["Container"]).withConfig({
   displayName: "contact__ContactContainer",
   componentId: "lqhh94-1"
 })(["padding-top:40px;"]);
@@ -14955,19 +15040,19 @@ var Label = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].label.with
 var Input = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].input.withConfig({
   displayName: "contact__Input",
   componentId: "lqhh94-5"
-})(["width:100%;padding:0.5rem;-webkit-appearance:none;-moz-appearance:none;border-color:#999;border-radius:0.225rem;font-weight:bold;font-size:18px;color:white;background:", ";"], function (props) {
+})(["width:100%;padding:0.5rem;-webkit-appearance:none;-moz-appearance:none;background-clip:padding-box;border:1px solid #999;border-radius:0.225rem;font-weight:bold;font-size:18px;color:white;background:", ";"], function (props) {
   return props.isRed ? 'radial-gradient(circle, rgba(196,100,79,0.07326680672268904) 0%, rgba(215,27,27,0.7315301120448179) 100%)' : 'radial-gradient(circle, rgba(40,44,52,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%)';
 });
 var TextArea = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].textarea.withConfig({
   displayName: "contact__TextArea",
   componentId: "lqhh94-6"
-})(["width:100%;padding:0.5rem;-webkit-appearance:none;-moz-appearance:none;border-color:#999;border-radius:0.225rem;font-weight:bold;font-size:18px;color:white;background:", ";"], function (props) {
+})(["width:100%;padding:0.5rem;-webkit-appearance:none;-moz-appearance:none;background-clip:padding-box;border:1px solid #999;border-radius:0.225rem;font-weight:bold;font-size:18px;color:white;background:", ";"], function (props) {
   return props.isRed ? 'radial-gradient(circle, rgba(196,100,79,0.07326680672268904) 0%, rgba(215,27,27,0.7315301120448179) 100%)' : 'radial-gradient(circle, rgba(40,44,52,0.48783263305322133) 0%, rgba(0,224,255,0.196516106442577) 100%)';
 });
 var SendButton = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].button.withConfig({
   displayName: "contact__SendButton",
   componentId: "lqhh94-7"
-})(["color:white;width:70px;height:40px;font-size:14px;border-color:#999;border-radius:0.225rem;background:rgb(47,147,63);background:radial-gradient(circle,rgba(47,147,63,0.48783263305322133) 0%,rgba(0,224,255,0.196516106442577) 100%);-moz-osx-font-smoothing:grayscale;backface-visibility:hidden;transform:translateZ(0);transition:all 0.25s ease-out;cursor:pointer;:hover,:focus{transform:scale(1.05);background:rgb(35,185,38);background:radial-gradient(circle,rgba(35,185,38,0.6) 0%,rgba(0,224,255,0.6) 100%);}:active{transform:scale(.90);}"]);
+})(["color:white;width:70px;height:40px;font-size:14px;background-clip:padding-box;-webkit-appearance:none;border:1px solid #999;border-radius:0.225rem;background:rgb(47,147,63);background:radial-gradient(circle,rgba(47,147,63,0.48783263305322133) 0%,rgba(0,224,255,0.196516106442577) 100%);-moz-osx-font-smoothing:grayscale;backface-visibility:hidden;transform:translateZ(0);transition:all 0.25s ease-out;cursor:pointer;:hover,:focus{transform:scale(1.05);background:rgb(35,185,38);background:radial-gradient(circle,rgba(35,185,38,0.6) 0%,rgba(0,224,255,0.6) 100%);}:active{transform:scale(.90);}"]);
 var A = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].a.withConfig({
   displayName: "contact__A",
   componentId: "lqhh94-8"
@@ -14984,25 +15069,29 @@ var Img = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].img.withConf
   displayName: "contact__Img",
   componentId: "lqhh94-11"
 })(["width:105%;height:auto;-moz-osx-font-smoothing:grayscale;backface-visibility:hidden;transform:translateZ(0);transition:transform 0.25s ease-out;:hover,:focus{transform:scale(1.05);}:active{transform:scale(.90);}"]);
+var SocialContainer = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
+  displayName: "contact__SocialContainer",
+  componentId: "lqhh94-12"
+})(["margin-top:40px;"]);
 var FlexBetween = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
   displayName: "contact__FlexBetween",
-  componentId: "lqhh94-12"
+  componentId: "lqhh94-13"
 })(["display:flex;justify-content:space-around;padding:2rem;max-width:30em;margin-left:auto;margin-right:auto;"]);
 var FlexCenter = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].div.withConfig({
   displayName: "contact__FlexCenter",
-  componentId: "lqhh94-13"
+  componentId: "lqhh94-14"
 })(["display:flex;justify-content:center;align-items:center;height:442px;"]);
 var TitleTilt = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(Title).withConfig({
   displayName: "contact__TitleTilt",
-  componentId: "lqhh94-14"
+  componentId: "lqhh94-15"
 })(["border-radius:0.225rem;background:radial-gradient(circle,rgba(47,147,63,0.48783263305322133) 0%,rgba(0,224,255,0.196516106442577) 100%);"]);
 var ErrorMesage = Object(styled_components__WEBPACK_IMPORTED_MODULE_9__["default"])(Title).withConfig({
   displayName: "contact__ErrorMesage",
-  componentId: "lqhh94-15"
-})(["border-radius:0.225rem;background:rgba(215,27,27,0.7315301120448179);max-width:30em;margin-left:auto;margin-right:auto;"]);
+  componentId: "lqhh94-16"
+})(["border-radius:0.225rem;background:rgba(215,27,27,0.7315301120448179);max-width:30em;padding:20px 20px;margin-left:auto;margin-right:auto;"]);
 var Copy = styled_components__WEBPACK_IMPORTED_MODULE_9__["default"].span.withConfig({
   displayName: "contact__Copy",
-  componentId: "lqhh94-16"
+  componentId: "lqhh94-17"
 })(["text-decoration:underline;cursor:pointer;"]);
 
 var Contact =
@@ -15020,7 +15109,7 @@ function (_React$Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onNameChange", function (event) {
       var hlr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.highlightRed);
 
-      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["regexCheck"])(event.target.value, 'plain')) {
+      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["regexCheck"])(event.target.value, 'plain')) {
         hlr[0] = false;
       }
 
@@ -15033,7 +15122,7 @@ function (_React$Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onEmailChange", function (event) {
       var hlr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.highlightRed);
 
-      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["checkEmail"])(event.target.value)) {
+      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["checkEmail"])(event.target.value)) {
         hlr[1] = false;
       }
 
@@ -15046,7 +15135,7 @@ function (_React$Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onTitleChange", function (event) {
       var hlr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.highlightRed);
 
-      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["checkSpecial"])(event.target.value)) {
+      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["checkSpecial"])(event.target.value)) {
         hlr[2] = false;
       }
 
@@ -15059,7 +15148,7 @@ function (_React$Component) {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onBodyChange", function (event) {
       var hlr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.state.highlightRed);
 
-      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["checkSpecial"])(event.target.value)) {
+      if (Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["checkSpecial"])(event.target.value)) {
         hlr[3] = false;
       }
 
@@ -15079,19 +15168,19 @@ function (_React$Component) {
               _this$state = _this.state, name = _this$state.name, email = _this$state.email, title = _this$state.title, body = _this$state.body, highlightRed = _this$state.highlightRed;
               hlr = Object(_babel_runtime_corejs2_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(highlightRed);
 
-              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["regexCheck"])(name, 'plain') || !name) {
+              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["regexCheck"])(name, 'plain') || !name) {
                 hlr[0] = true;
               }
 
-              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["checkEmail"])(email) || !email) {
+              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["checkEmail"])(email) || !email) {
                 hlr[1] = true;
               }
 
-              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["regexCheck"])(title, 'special') || !title) {
+              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["regexCheck"])(title, 'special') || !title) {
                 hlr[2] = true;
               }
 
-              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_16__["regexCheck"])(body, 'special') || !body) {
+              if (!Object(_util_regexCheck__WEBPACK_IMPORTED_MODULE_17__["regexCheck"])(body, 'special') || !body) {
                 hlr[3] = true;
               }
 
@@ -15101,26 +15190,37 @@ function (_React$Component) {
 
 
               if (hlr.includes(true)) {
-                _context.next = 12;
+                _context.next = 13;
                 break;
               }
 
-              _context.next = 10;
-              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_API_sendEmail__WEBPACK_IMPORTED_MODULE_17__["default"])({
+              // set status to loading, then update status when we get result
+              _this.setState({
+                emailStatus: 'loading'
+              });
+
+              _context.next = 11;
+              return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_API_sendEmail__WEBPACK_IMPORTED_MODULE_18__["default"])({
                 name: name,
                 email: email,
                 title: title,
                 body: body
               }));
 
-            case 10:
+            case 11:
               success = _context.sent;
 
-              _this.setState({
-                emailSent: success
-              });
+              if (success) {
+                _this.setState({
+                  emailStatus: 'success'
+                });
+              } else {
+                _this.setState({
+                  emailStatus: 'failed'
+                });
+              }
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
@@ -15149,15 +15249,14 @@ function (_React$Component) {
               return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(navigator.clipboard.writeText(text));
 
             case 7:
-              _context2.next = 12;
+              _context2.next = 11;
               break;
 
             case 9:
               _context2.prev = 9;
               _context2.t0 = _context2["catch"](4);
-              console.error('Failed to copy!', _context2.t0);
 
-            case 12:
+            case 11:
             case "end":
               return _context2.stop();
           }
@@ -15171,7 +15270,7 @@ function (_React$Component) {
       title: '',
       body: '',
       highlightRed: new Array(4).fill(false),
-      emailSent: null
+      emailStatus: 'writing'
     };
     return _this;
   }
@@ -15183,17 +15282,17 @@ function (_React$Component) {
 
       var _this$state2 = this.state,
           highlightRed = _this$state2.highlightRed,
-          emailSent = _this$state2.emailSent;
+          emailStatus = _this$state2.emailStatus;
       return __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 296
+          lineNumber: 320
         },
         __self: this
-      }, __jsx(_components_Backgrounds__WEBPACK_IMPORTED_MODULE_15__["YosemiteBackground"], {
+      }, __jsx(_components_Backgrounds__WEBPACK_IMPORTED_MODULE_16__["YosemiteBackground"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 297
+          lineNumber: 321
         },
         __self: this
       }, __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_12__["Transition"], {
@@ -15204,7 +15303,7 @@ function (_React$Component) {
         appear: true,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 298
+          lineNumber: 322
         },
         __self: this
       }, function (state) {
@@ -15212,17 +15311,17 @@ function (_React$Component) {
           state: state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 306
+            lineNumber: 330
           },
           __self: this
         }, __jsx(ContactContainer, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 307
+            lineNumber: 331
           },
           __self: this
         }, __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_12__["Transition"], {
-          "in": emailSent === null || emailSent === false,
+          "in": emailStatus === 'writing',
           timeout: {
             exit: 300
           },
@@ -15230,7 +15329,7 @@ function (_React$Component) {
           mountOnEnter: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 310
+            lineNumber: 334
           },
           __self: this
         }, function (state) {
@@ -15238,25 +15337,25 @@ function (_React$Component) {
             state: state,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 319
+              lineNumber: 343
             },
             __self: this
           }, __jsx(Title, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 320
+              lineNumber: 344
             },
             __self: this
           }, "Send Me an Email"), __jsx(FormContainer, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 321
+              lineNumber: 345
             },
             __self: this
           }, __jsx(Label, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 322
+              lineNumber: 346
             },
             __self: this
           }, "Name", __jsx(Input, {
@@ -15265,19 +15364,19 @@ function (_React$Component) {
             type: "text",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 323
+              lineNumber: 347
             },
             __self: this
           })), __jsx(PadTop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 329
+              lineNumber: 353
             },
             __self: this
           }, __jsx(Label, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 330
+              lineNumber: 354
             },
             __self: this
           }, "Email", __jsx(Input, {
@@ -15286,19 +15385,19 @@ function (_React$Component) {
             type: "email",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 331
+              lineNumber: 355
             },
             __self: this
           }))), __jsx(PadTop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 338
+              lineNumber: 362
             },
             __self: this
           }, __jsx(Label, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 339
+              lineNumber: 363
             },
             __self: this
           }, "Subject", __jsx(Input, {
@@ -15307,19 +15406,19 @@ function (_React$Component) {
             type: "text",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 340
+              lineNumber: 364
             },
             __self: this
           }))), __jsx(PadTop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 347
+              lineNumber: 371
             },
             __self: this
           }, __jsx(Label, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 348
+              lineNumber: 372
             },
             __self: this
           }, "Message", __jsx(TextArea, {
@@ -15327,33 +15426,34 @@ function (_React$Component) {
             isRed: highlightRed[3],
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 349
+              lineNumber: 373
             },
             __self: this
           }))), __jsx(PadTop, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 355
+              lineNumber: 379
             },
             __self: this
           }, __jsx(SendButton, {
             onClick: _this2.onSend,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 356
+              lineNumber: 380
             },
             __self: this
           }, "Send"))));
         }), __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_12__["Transition"], {
-          "in": emailSent,
+          "in": emailStatus === 'loading',
           timeout: {
-            enter: 350
+            enter: 100,
+            exit: 350
           },
           unmountOnExit: true,
           mountOnEnter: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 366
+            lineNumber: 390
           },
           __self: this
         }, function (state) {
@@ -15361,13 +15461,46 @@ function (_React$Component) {
             state: state,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 375
+              lineNumber: 400
             },
             __self: this
           }, __jsx(FlexCenter, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 376
+              lineNumber: 401
+            },
+            __self: this
+          }, __jsx(_components_Loading__WEBPACK_IMPORTED_MODULE_15__["default"], {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 402
+            },
+            __self: this
+          })));
+        }), __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_12__["Transition"], {
+          "in": emailStatus === 'success',
+          timeout: {
+            enter: 350
+          },
+          unmountOnExit: true,
+          mountOnEnter: true,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 409
+          },
+          __self: this
+        }, function (state) {
+          return __jsx(_components_Fade__WEBPACK_IMPORTED_MODULE_14__["default"], {
+            state: state,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 418
+            },
+            __self: this
+          }, __jsx(FlexCenter, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 419
             },
             __self: this
           }, __jsx(react_tilt__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -15377,18 +15510,18 @@ function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 377
+              lineNumber: 420
             },
             __self: this
           }, __jsx(TitleTilt, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 378
+              lineNumber: 421
             },
             __self: this
           }, "Email Sent!"))));
         }), __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_12__["Transition"], {
-          "in": emailSent === false,
+          "in": emailStatus === 'failed',
           timeout: {
             enter: 350,
             exit: 300
@@ -15397,7 +15530,7 @@ function (_React$Component) {
           mountOnEnter: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 388
+            lineNumber: 431
           },
           __self: this
         }, function (state) {
@@ -15405,33 +15538,45 @@ function (_React$Component) {
             state: state,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 398
+              lineNumber: 441
+            },
+            __self: this
+          }, __jsx(FlexCenter, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 442
             },
             __self: this
           }, __jsx(ErrorMesage, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 399
+              lineNumber: 443
             },
             __self: this
           }, "Error sending email... you can reach me at", __jsx(Copy, {
             onClick: _this2.copyToClipBoard,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 401
+              lineNumber: 445
             },
             __self: this
-          }, " spencerhemstreet@gmail.com")));
-        }), __jsx(Title, {
+          }, " spencerhemstreet@gmail.com"))));
+        })), __jsx(SocialContainer, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 407
+            lineNumber: 453
+          },
+          __self: this
+        }, __jsx(Title, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 454
           },
           __self: this
         }, "Reach Out To Me On GitHub or LinkedIn"), __jsx(FlexBetween, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 408
+            lineNumber: 455
           },
           __self: this
         }, __jsx(react_tilt__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -15441,7 +15586,7 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 409
+            lineNumber: 456
           },
           __self: this
         }, __jsx(GitHubA, {
@@ -15450,7 +15595,7 @@ function (_React$Component) {
           href: "https://github.com/sfhemstreet",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 410
+            lineNumber: 457
           },
           __self: this
         }, __jsx(Img, {
@@ -15458,7 +15603,7 @@ function (_React$Component) {
           src: "/images/GitHub.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 414
+            lineNumber: 461
           },
           __self: this
         }))), __jsx(react_tilt__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -15468,7 +15613,7 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 417
+            lineNumber: 464
           },
           __self: this
         }, __jsx(LinkedInA, {
@@ -15477,7 +15622,7 @@ function (_React$Component) {
           href: "https://www.linkedin.com/in/spencer-hemstreet-094331177/",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 418
+            lineNumber: 465
           },
           __self: this
         }, __jsx(Img, {
@@ -15485,7 +15630,7 @@ function (_React$Component) {
           src: "/images/linkedIn.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 422
+            lineNumber: 469
           },
           __self: this
         }))))));

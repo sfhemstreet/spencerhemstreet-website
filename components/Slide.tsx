@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Arrow from './Arrow';
 import {TransformItem, TransformContainer, TransformAnchor} from './TransformItem';
+import useSwipe from '../hooks/useSwipe';
 
 interface SlideProps {
     width: number
@@ -34,8 +35,10 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     const [index, setIndex] = useState(startIndex);
     // ref to move 
     const slide = useRef<HTMLDivElement>(null);
-    // coords for touch calculations
-    const [coords,setCoords] = useState({ x: (width/2), y: (height/2)});
+
+    // touch gestures
+    const touchRef = useRef<HTMLDivElement>(null);
+    useSwipe(touchRef, handlePrev, handleNext);
 
     const translateFn = isHorizontal ? 'translateX' : 'translateY';
     const cellSize = isHorizontal ? width : height;
@@ -63,22 +66,6 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
         rotateSlide();
     };
 
-    function handleTouchStart(evt: React.TouchEvent<HTMLDivElement>){
-        const x = evt.changedTouches[0].pageX;
-        const y = evt.changedTouches[0].pageY;
-        setCoords({x, y});
-    }
-
-    function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
-        const x = evt.changedTouches[0].pageX;
-        const y = evt.changedTouches[0].pageY;
-        if(x < coords.x - 20 && y < coords.y + 20 && y > coords.y - 20 )
-            handleNext();
-
-        if(x > coords.x + 20 && y < coords.y + 20 && y > coords.y - 20)
-            handlePrev();
-    }
-
     rotateSlide();
 
     return (
@@ -91,8 +78,7 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
             <TransformAnchor 
                 onMouseEnter={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                ref={touchRef}
             >
                 {isVisible && 
                     <>

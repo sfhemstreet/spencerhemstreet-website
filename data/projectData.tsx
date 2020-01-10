@@ -58,6 +58,7 @@ const ProjectContainer = styled.div`
 
 const P = styled.p`
     margin: 0.25rem 0rem;
+    color: #bbb;
 `;
 
 const Bold = styled(P)`
@@ -67,13 +68,14 @@ const Bold = styled(P)`
 const Flex = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0.5rem;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
 `;
 
 const ProjImg = styled.img`
     max-width: 100%;
-    height: auto;
+    max-height: 300px;
 `;
 
 export const A = styled.a`
@@ -96,22 +98,22 @@ export const A = styled.a`
 */
 export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${0}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' >Chore App</A></Bold>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' >Chore</A></Bold>
         <P >
-            Chore is a web based application for organizing and assigning chores in a household, apartment or group.
-            The app does the work in reminding children, partners, or roommates about the chores they need to do, 
-            alleviating the stress that often comes from nagging others to do their share around the home.
-        </P>
-        <P >Chore uses React.js to render views, Redux for state management, React-Router for
-            routing, and Tachyons for simple CSS styling. 
+            Chore is a web app for organizing, assigning, and keeping track of chores in a household. 
+            It allows users to create groups, invite their roommates, grant individual member permissions, and create / assign chores. 
         </P>
         <P >
-            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-api' >The back-end </A>uses a Node.js server using Express.js for routing of HTTP requests. Passwords are hashed and compared
-            using Bcrypt and tracking of user sessions is done with Express-Session. The database is PostgreSQL.
+             
         </P>
         <P >
-            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-email' >The email-api </A>uses a Node.js server using Express.js for routing of HTTP email requests. 
-            Emails are sent using Twilio Send Grid's API.
+            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' title="Front-End GitHub repo">Front-End:</A> React, Redux, React-Router, Tachyons 
+        </P>
+        <P >
+            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-api' title="Back-End GitHub repo">Back-End: </A>Node.js, Express, Bcrypt, JSON Web Tokens, PostgreSQL.
+        </P>
+        <P >
+            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-email' title="Email GitHub repo">Email: </A>Node.js, Express, Twilio Send Grid
         </P>
         <Flex>
             <ProjImg src='/images/chore_demo.png' alt='demo of chore app' />    
@@ -120,14 +122,12 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${1}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
         <P >
-        Map-N-Weather is responsive, mobile friendly Map and Weather dashboard. Just give it coordinates. 
+            Map-N-Weather is responsive Map and Weather dashboard, used to get 5 day weather, and visualize wind, temperature, precipitation and cloud data for any given coordinates. 
+            Side navigation displays list of saved coordinates, and can be searched by type of data point, and by name. 
+            Currently features coordinates of my favorite camping and rock climbing areas. 
         </P>
         <P >
-        The map can overlay wind, temperature, precipitation, and cloud data. The weather portion displays current and 5 day weather in 3 hour intervals.
-        The side navigation can display a nested list of points you'd want weather for. Filter by type of data point, and by name. Currently features my favorite camping and climbing spots. 
-        </P>
-        <P >
-        (TypeScript, React, Leaflet.js)
+            Utilizes TypeScript, React, Leaflet.js
         </P>
         <Flex>
             <ProjImg src='/images/mapnweather_demo.gif' alt='demo of Map-N-Weather'/>
@@ -136,15 +136,14 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${2}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chat' >Chat</A></Bold>
         <P >
-        Chat is a simple instant messager written in TypeScript that can easily fit into a website and features reuseable components. 
-        It uses CSS keyframes for animations to keep the file size small, and WebSockets for fast messaging. 
+            Chat is web app instant messager that utilizes WebSockets for fast messaging.  
         </P>
         <P >
-        The demo front-end container asks the user for a username, then randomly assigns the user a dog avatar photo using Dog CEO Dog API.
-        Demo back-end node server pushes messages to all clients connected to it. 
+            The demo front-end container asks the user for a username, then randomly assigns the user a dog avatar photo using Dog CEO Dog API.
+            Demo back-end node server pushes messages to all clients connected to it. 
         </P>
         <P >
-        (TypeScript, React, Node, WebSockets)
+            Utilizes: TypeScript, React, Node, WebSockets
         </P>
         <Flex>
             <ProjImg src='/images/chat_demo.png'  alt='demo of chat messages' />
@@ -153,14 +152,16 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${3}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
         <P >
-        TraderBot is an automated CrytoCurrency trader that reads data off of multiple websockets to make trades 24/7.
+            TraderBot is an automated CrytoCurrency trader that reads data off of multiple websockets to make trades 24/7.
         </P>
         <P >
-        Written in Python, TraderBot uses Asyncio to constantly stream on-chain inflow data from Token Analyst's websocket as well as trade and price data from BitMEX's websocket. 
-        Inflow values above the user given threshold trigger trades on the BitMEX exchange thru their REST API. 
+            Written in Python, TraderBot uses Asyncio to constantly stream on-chain data from Token Analyst's websocket 
+            as well as trade and price data from BitMEX's websocket. 
+            Project was written for traders with little coding knowledge and contains abstractions for easiliy reading data 
+            and trigger trades on the BitMEX exchange. 
         </P>
         <P >
-        (Asyncio, WebSockets)
+            Utilizes: Asyncio, WebSockets
         </P>
         <Flex>
             <ProjImg src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
@@ -169,11 +170,11 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${4}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Face Recognition</A></Bold>
         <P >
-        A web based application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users enter 
+        A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users enter 
         a URL to an image to see if the AI can recognize human faces. Faces detected in the photo are boxed and highlighted. 
         </P>
         <P >
-        (React, Node, Express, PostgreSQL)
+        Utilizes: React, Node.js, Express, PostgreSQL
         </P>
         <Flex>
             <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
@@ -182,7 +183,8 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${5}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/alien-invasion-js' >Alien invasion</A></Bold>
         <P>
-            Alien Invasion pays homage to the classic “Space Invaders” arcade game. Written in plain ole JavaScript.
+            Alien Invasion is a web game that pays homage to the classic “Space Invaders” arcade game. 
+            The game uses vanilla JavaScript for gameplay and logic, with HTML5 Canvas to render and manipulate the DOM. 
             <A href='https://sfhemstreet.github.io/alien-invasion-js/' target='_blank' rel="noopener noreferrer" > Play it!</A> 
         </P>
         <P className='mv0' >Don't believe it's possible to win? Watch me beat it <A href="https://www.youtube.com/embed/_u-ijAS8CWo" target='_blank' rel="noopener noreferrer" >here</A></P>

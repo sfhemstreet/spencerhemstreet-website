@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useRef } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Arrow  from './Arrow';
 import {TransformItem, TransformContainer, TransformAnchor} from './TransformItem';
+import useSwipe from '../hooks/useSwipe';
 
 interface CarouselProps {
     width: number
@@ -32,9 +33,10 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
     const [isVisible, setIsVisible] = useState(false);
     // Index
     const [index, setIndex] = useState(startIndex);
-    // coords for touch calculations
-    const [coords,setCoords] = useState({ x: (width/2), y: (height/2)});
-
+    //  touch 
+    const touchRef = useRef<HTMLDivElement>(null);
+    useSwipe(touchRef, handlePrev, handleNext);
+    
     const rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
     const theta = 360 / items.length;
     const cellSize = isHorizontal ? width : height;
@@ -48,21 +50,6 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
         setIndex(index + 1);
     }
 
-    function handleTouchStart(evt: React.TouchEvent<HTMLDivElement>){
-        const x = evt.changedTouches[0].pageX;
-        const y = evt.changedTouches[0].pageY;
-        setCoords({x, y});
-    }
-
-    function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
-        const x = evt.changedTouches[0].pageX;
-        const y = evt.changedTouches[0].pageY;
-        if(x < coords.x - 20 && y < coords.y + 20 && y > coords.y - 20 )
-            handleNext();
-
-        if(x > coords.x + 20 && y < coords.y + 20 && y > coords.y - 20)
-            handlePrev();
-    }
 
     return (
         <ThemeProvider 
@@ -75,8 +62,7 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
             <TransformAnchor 
                 onMouseOver={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                ref={touchRef}
             >
                 {isVisible && 
                     <>

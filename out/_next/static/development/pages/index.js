@@ -132,7 +132,7 @@ var KirkwoodBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 var YosemiteBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__YosemiteBackground",
   componentId: "sui7pg-1"
-})(["height:100%;min-height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
+})(["height:100%;height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
 var BlackBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__BlackBackground",
   componentId: "sui7pg-2"
@@ -407,6 +407,89 @@ var Layout = function Layout(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./components/Loading.tsx":
+/*!********************************!*\
+  !*** ./components/Loading.tsx ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/spencerhemstreet/Documents/Coding/NextPract/second/sfhemstreet/components/Loading.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var Spinner = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Loading__Spinner",
+  componentId: "nheh4f-0"
+})(["width:30px;height:30px;margin:100px auto;position:relative;"]);
+var ball = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Loading__ball",
+  componentId: "nheh4f-1"
+})(["height:50px;width:50px;left:50%;top:50%;background:rgba( 0,255,0,.5);border-radius:50%;float:left;position:absolute;"]);
+var ball1 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:-100%;left:200%;background:rgba( 127,127,0,.5);}100%{top:50%;left:100%;background:rgba( 0,255,0,.5);z-index:2;}"]);
+var ball2 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:200%;left:200%;background:rgba( 0,255,255,.5);}100%{top:100%;left:50%;background:rgba( 0,0,255,.5);z-index:1;}"]);
+var ball3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:200%;left:-100%;background:rgba( 255,0,255,.5);}100%{top:50%;left:0%;background:rgba( 255,255,0,.5);z-index:2;}"]);
+var ball4 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(["50%{top:-100%;left:-100%;background:rgba( 255,127,0,.5);}100%{top:0%;left:50%;background:rgba( 255,0,0,.5);z-index:1;}"]);
+var Ball_1 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_1",
+  componentId: "nheh4f-2"
+})(["background:rgba( 255,0,0,.5);top:0;left:50%;animation:", " 1s 0s ease infinite;z-index:1;"], ball1);
+var Ball_2 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_2",
+  componentId: "nheh4f-3"
+})(["background:rgba( 0,255,0,.5);top:50%;left:100%;animation:", " 1s 0s ease infinite;z-index:2;"], ball2);
+var Ball_3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_3",
+  componentId: "nheh4f-4"
+})(["background:rgba( 0,0,255,.5);top:100%;left:50%;animation:", " 1s 0s ease infinite;z-index:1;"], ball3);
+var Ball_4 = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(ball).withConfig({
+  displayName: "Loading__Ball_4",
+  componentId: "nheh4f-5"
+})(["background:rgba( 255,255,0,.5);top:50%;left:0%;animation:", " 1s 0s ease infinite;z-index:2;"], ball4);
+
+var Loading = function Loading() {
+  return __jsx(Spinner, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
+  }, __jsx(Ball_1, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114
+    },
+    __self: this
+  }), __jsx(Ball_2, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115
+    },
+    __self: this
+  }), __jsx(Ball_3, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116
+    },
+    __self: this
+  }), __jsx(Ball_4, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: this
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Loading);
 
 /***/ }),
 
@@ -703,10 +786,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useWindowDimensions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../hooks/useWindowDimensions */ "./hooks/useWindowDimensions.tsx");
 /* harmony import */ var _Carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Carousel */ "./components/Carousel.tsx");
 /* harmony import */ var _CloseButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CloseButton */ "./components/CloseButton.tsx");
+/* harmony import */ var _Loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Loading */ "./components/Loading.tsx");
 
 var _jsxFileName = "/Users/spencerhemstreet/Documents/Coding/NextPract/second/sfhemstreet/components/ProjectCarousel.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -753,26 +838,26 @@ var ProjectCarousel = function ProjectCarousel(_ref) {
       return __jsx(SlideContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 72
         },
         __self: this
       }, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 73
         },
         __self: this
       }, __jsx(_CloseButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
         onClick: onExit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 74
         },
         __self: this
       })), __jsx(PaddingTop, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 76
         },
         __self: this
       }, slide));
@@ -784,19 +869,19 @@ var ProjectCarousel = function ProjectCarousel(_ref) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 82
       },
       __self: this
     }, __jsx(Container, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 88
       },
       __self: this
     }, __jsx(Center, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88
+        lineNumber: 89
       },
       __self: this
     }, __jsx(_Carousel__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -806,7 +891,7 @@ var ProjectCarousel = function ProjectCarousel(_ref) {
       startIndex: currSlide,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89
+        lineNumber: 90
       },
       __self: this
     }))));
@@ -16009,7 +16094,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fspencerhemstreet%2FDocuments%2FCoding%2FNextPract%2Fsecond%2Fsfhemstreet%2Fpages%2Findex.tsx ***!
   \************************************************************************************************************************************************************************/
@@ -16032,5 +16117,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

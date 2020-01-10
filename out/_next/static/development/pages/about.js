@@ -132,7 +132,7 @@ var KirkwoodBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 var YosemiteBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__YosemiteBackground",
   componentId: "sui7pg-1"
-})(["height:100%;min-height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
+})(["height:100%;height:100vh;margin:0;padding:0;position:relative;background-image:linear-gradient(rgba(19,14,14,0.7),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");background-size:cover;background-color:black;background-repeat:no-repeat;@media only screen and (min-width:992px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview.png\");}@media only screen and (min-width:768px) and (max-width:991px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-800.png\");}@media only screen and (min-width:480px) and (max-width:767px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-550.png\");}@media only screen and (min-width:320px) and (max-width:479px){background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(\"/images/yosemiteview-400.png\");}"]);
 var BlackBackground = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "Backgrounds__BlackBackground",
   componentId: "sui7pg-2"
@@ -14980,7 +14980,7 @@ var Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.wi
 var P = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p.withConfig({
   displayName: "about__P",
   componentId: "sc-265azx-1"
-})(["  max-width:25em;margin-bottom:0;margin-left:auto;margin-right:auto;"]);
+})(["  max-width:25em;padding:0px 20px;margin-bottom:0;margin-left:auto;margin-right:auto;"]);
 
 function About() {
   var images = [{
@@ -14996,13 +14996,13 @@ function About() {
   return __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 36
     },
     __self: this
   }, __jsx(_components_Backgrounds__WEBPACK_IMPORTED_MODULE_6__["BlackBackground"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 37
     },
     __self: this
   }, __jsx(react_transition_group__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
@@ -15013,7 +15013,7 @@ function About() {
     appear: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 38
     },
     __self: this
   }, function (state) {
@@ -15021,32 +15021,38 @@ function About() {
       state: state,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 46
       },
       __self: this
     }, __jsx(Container, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 47
       },
       __self: this
     }, __jsx(P, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46
+        lineNumber: 48
       },
       __self: this
     }, "Hello! I'm Spencer, and I am Front-End developer based out of San Francisco."), __jsx(P, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 51
       },
       __self: this
-    }, "In my free time I enjoy rock climbing (bouldering mostly), playing guitar, hiking, and watching scary movies."), __jsx(_components_PhotoSlideShow__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "I have extensive knowledge and experience with JavaScript and popular frameworks/libraries like React, Redux, and Next. I have built full-stack applications using Node.js and Express, and have experience with PostgreSQL, MySQL, and MongoDB. I am a big fan of TypeScript and the KISS method."), __jsx(P, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      },
+      __self: this
+    }, "In my free time I enjoy rock climbing, playing guitar, hiking, and watching scary movies."), __jsx(_components_PhotoSlideShow__WEBPACK_IMPORTED_MODULE_5__["default"], {
       photos: images,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 62
       },
       __self: this
     })));
@@ -15057,7 +15063,7 @@ function About() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*****************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fspencerhemstreet%2FDocuments%2FCoding%2FNextPract%2Fsecond%2Fsfhemstreet%2Fpages%2Fabout.tsx ***!
   \*****************************************************************************************************************************************************************************/
@@ -15080,5 +15086,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=about.js.map

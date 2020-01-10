@@ -51,6 +51,6 @@ interface CloseButtonProps {
     onClick: () => void
 }
 
-const CloseButton = ({onClick}:CloseButtonProps) => <Close onClick={onClick}/>
+const CloseButton = ({onClick}:CloseButtonProps) => <Close onClick={onClick} onTouchStart={onClick}/>
 
 export default CloseButton;

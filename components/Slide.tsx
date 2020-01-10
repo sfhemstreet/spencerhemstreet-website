@@ -33,15 +33,14 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     const [isVisible, setIsVisible] = useState(false);
     // Index of slide 
     const [index, setIndex] = useState(startIndex);
-    // ref to move 
-    const slide = useRef<HTMLDivElement>(null);
-
-    
-    useSwipe(slide, handlePrev, handleNext);
+    // touch 
+    const touchRef = useRef<HTMLDivElement>(null);
+    useSwipe(touchRef, handlePrev, handleNext);
 
     const translateFn = isHorizontal ? 'translateX' : 'translateY';
     const cellSize = isHorizontal ? width : height;
 
+    /*
     function rotateSlide() {
         // calcuate current position and max position
         const currPos = cellSize * index;
@@ -49,23 +48,26 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
         // stay within max then make it opposite
         // - JS handles negative mod poorly, fixed by adding max, then % by max again 
         const position = (((currPos % max) + max) % max) * -1;
+
+        
        
         if(slide && slide.current){
             slide.current.style.transform = `${translateFn}(${position}px)`;
         }
     }
+    */
 
     function handlePrev() {
         setIndex(index - 1);
-        rotateSlide();
+        //rotateSlide();
     };
 
     function handleNext() {
         setIndex(index + 1);
-        rotateSlide();
+        //rotateSlide();
     };
 
-    rotateSlide();
+    //rotateSlide();
 
     return (
         <ThemeProvider 
@@ -77,6 +79,7 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
             <TransformAnchor 
                 onMouseEnter={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
+                ref={touchRef}
             >
                 {isVisible && 
                     <>
@@ -95,7 +98,8 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
                     </>
                 }
                 <TransformContainer
-                    ref={slide}
+                    // JS handles negative mod poorly, fixed by adding max, then % by max again 
+                    transform={`${translateFn}(${((((cellSize * index) % (items.length * cellSize)) + (items.length * cellSize)) % (items.length * cellSize) * -1)}px)`}
                 >
                     {items.map((item, i) => {
                         const cellPosition = cellSize * i;

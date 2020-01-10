@@ -72,10 +72,10 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
         const x = evt.changedTouches[0].pageX;
         const y = evt.changedTouches[0].pageY;
-        if(x < coords.x - 20 && y < coords.y + 10 && y > coords.y - 10 )
+        if(x < coords.x - 20 && y < coords.y + 20 && y > coords.y - 20 )
             handleNext();
 
-        if(x > coords.x + 20 && y < coords.y + 10 && y > coords.y - 10)
+        if(x > coords.x + 20 && y < coords.y + 20 && y > coords.y - 20)
             handlePrev();
     }
 

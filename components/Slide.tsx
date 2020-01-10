@@ -77,7 +77,6 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
             <TransformAnchor 
                 onMouseEnter={() => setIsVisible(true)} 
                 onMouseLeave={() => setIsVisible(false)}
-                ref={touchRef}
             >
                 {isVisible && 
                     <>

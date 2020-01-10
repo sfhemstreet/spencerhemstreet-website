@@ -22,7 +22,7 @@ const SlideContainer = styled.div`
     width: ${props => props.theme.width};
     height: 100%;
 
-    overflow-y: scroll;
+    overflow-y: visible;
 
     display: flex;
     justify-content: center;

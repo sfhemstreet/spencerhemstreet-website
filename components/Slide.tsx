@@ -34,7 +34,7 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     const [index, setIndex] = useState(startIndex);
     // ref to move 
     const slide = useRef<HTMLDivElement>(null);
-    // x-coord for touch calculations
+    // coords for touch calculations
     const [coords,setCoords] = useState({ x: (width/2), y: (height/2)});
 
     const translateFn = isHorizontal ? 'translateX' : 'translateY';
@@ -72,10 +72,10 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
         const x = evt.changedTouches[0].pageX;
         const y = evt.changedTouches[0].pageY;
-        if(x < coords.x - 20 && y < coords.y + 5 && y > coords.y - 5 )
+        if(x < coords.x - 20 && y < coords.y + 10 && y > coords.y - 10 )
             handleNext();
 
-        if(x > coords.x + 20 && y < coords.y + 5 && y > coords.y - 5)
+        if(x > coords.x + 20 && y < coords.y + 10 && y > coords.y - 10)
             handlePrev();
     }
 

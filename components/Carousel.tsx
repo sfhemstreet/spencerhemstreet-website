@@ -57,10 +57,10 @@ const Carousel:FunctionComponent<CarouselProps> = ({width, height, items, isHori
     function handleTouchEnd(evt: React.TouchEvent<HTMLDivElement>){
         const x = evt.changedTouches[0].pageX;
         const y = evt.changedTouches[0].pageY;
-        if(x < coords.x - 20 && y < coords.y + 5 && y > coords.y - 5 )
+        if(x < coords.x - 20 && y < coords.y + 10 && y > coords.y - 10 )
             handleNext();
 
-        if(x > coords.x + 20 && y < coords.y + 5 && y > coords.y - 5)
+        if(x > coords.x + 20 && y < coords.y + 10 && y > coords.y - 10)
             handlePrev();
     }
 

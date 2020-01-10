@@ -17,6 +17,8 @@ const Container = styled.div`
 const P = styled.p` 
     max-width: 25em;
 
+    padding: 0px 20px;
+
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
@@ -46,8 +48,15 @@ function About(){
                             <P>
                                 Hello! I'm Spencer, and I am Front-End developer based out of San Francisco.
                             </P>
+                            <P>
+                                I have extensive knowledge and experience with JavaScript  
+                                and popular frameworks/libraries like React, Redux, and Next. 
+                                I have built full-stack applications using Node.js and Express, 
+                                and have experience with PostgreSQL, MySQL, and MongoDB.
+                                I am a big fan of TypeScript and the KISS method.
+                            </P>
                             <P >
-                                In my free time I enjoy rock climbing (bouldering mostly), 
+                                In my free time I enjoy rock climbing, 
                                 playing guitar, hiking, and watching scary movies.  
                             </P>  
                             <PhotoSlideShow photos={images} />  

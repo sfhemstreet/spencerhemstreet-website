@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import Carousel from './Carousel';
 import CloseButton from './CloseButton';
+import Loading from './Loading';
 
 const Container = styled.div`
     position: relative;
@@ -98,7 +99,13 @@ const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
         )
     }
     else {
-        return <div>Loading</div>
+        return (
+            <Container>
+                    <Center>
+                        <Loading />
+                    </Center>    
+            </Container>
+        )
     }
 }
 

@@ -6,23 +6,22 @@ import CloseButton from './CloseButton';
 import Loading from './Loading';
 
 const Container = styled.div`
-    position: relative;
-    width: 100%;
-
+     position: relative;
     overflow-x: hidden;
+    min-height: 850px;
+    width: 100%;
 `;
 
 const Center = styled.div`
     display: flex;
     justify-content: center;
+
+    
 `;
 
 const SlideContainer = styled.div`
     
     width: ${props => props.theme.width};
-    height: 100%;
-
-    overflow-y: visible;
 
     display: flex;
     justify-content: center;
@@ -48,25 +47,28 @@ interface ProjectCarouselProps {
 
 const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
     if (typeof window !== 'undefined'){
-        const [ absoluteWidth ] = useWindowDimensions();
+        const [ absoluteWidth, absoluteHeight ] = useWindowDimensions();
 
-        const getWidth = (absoluteWidth: number) => {
-            if(absoluteWidth > 800)
-                return 768;
+        const getWidthHeight = (absoluteWidth: number) => {
+            if(absoluteWidth > 985)
+                return {width: 768, height: 550};
+
+            if(absoluteWidth > 897)
+                return {width: 668, height: 600};
         
-            if(absoluteWidth > 500)
-                return 480;
+            if(absoluteWidth > 725)
+                return {width: 480, height: 600};
 
             if(absoluteWidth > 400)
-                return 370;
+                return {width: 370, height: 600};
         
             if(absoluteWidth > 350)
-                return 330;
+                return {width: 330, height: 600};
 
-            return 300;
+            return {width: 300, height: 600};
         }
         
-        const width = getWidth(absoluteWidth);
+        const {width, height} = getWidthHeight(absoluteWidth);
 
         const carouselItems = slides.map(slide => (
             <SlideContainer>
@@ -90,7 +92,7 @@ const ProjectCarousel = ({slides, currSlide, onExit}:ProjectCarouselProps) => {
                         <Carousel 
                             items={carouselItems}
                             width={width}
-                            height={800}
+                            height={height}
                             startIndex={currSlide}
                         />  
                     </Center>    

@@ -12,6 +12,10 @@ const ProjectsContainer = styled(Container)`
     justify-content: center;
     flex-wrap: wrap;
     padding: 1rem;
+    max-width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 const BigText = styled.p`

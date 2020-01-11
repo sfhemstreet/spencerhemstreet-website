@@ -31,7 +31,7 @@ export const KirkwoodBackground = styled.div`
 
 export const YosemiteBackground = styled.div`
     height: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     position: relative;

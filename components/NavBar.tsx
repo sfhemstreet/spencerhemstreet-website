@@ -128,26 +128,21 @@ const NavBar = () => {
                 <MarginLeft>
                     <Links >
                         <Link href='/'>
-                            <GreenHover>   
+                            <GreenHover tabIndex={0} >   
                                 <Tilt options={{ max : 55, perspective: 55 }} >
                                     Home
                                 </Tilt>
                             </GreenHover>
                         </Link>
-                        {/*<Link href='/resume'>
-                            <Tilt options={{ max : 55, perspective: 50}} >
-                                Resume
-                            </Tilt>
-                        </Link>*/}
                         <Link href='/about'>
-                            <PinkHover>
+                            <PinkHover tabIndex={0}>
                                 <Tilt options={{ max : 55, perspective: 75 }} >
                                     About 
                                 </Tilt>
                             </PinkHover>
                         </Link>
                         <Link href='/contact'>
-                            <OrangeHover>
+                            <OrangeHover tabIndex={0}>
                                 <Tilt options={{ max : 55, perspective: 75 }} >
                                     Contact
                                 </Tilt>

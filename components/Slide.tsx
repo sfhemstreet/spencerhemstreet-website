@@ -40,34 +40,20 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
     const translateFn = isHorizontal ? 'translateX' : 'translateY';
     const cellSize = isHorizontal ? width : height;
 
-    /*
-    function rotateSlide() {
-        // calcuate current position and max position
-        const currPos = cellSize * index;
-        const max = items.length * cellSize;
-        // stay within max then make it opposite
-        // - JS handles negative mod poorly, fixed by adding max, then % by max again 
-        const position = (((currPos % max) + max) % max) * -1;
-
-        
-       
-        if(slide && slide.current){
-            slide.current.style.transform = `${translateFn}(${position}px)`;
-        }
-    }
-    */
+    // calcuate current position and max position
+    const currPos = cellSize * index;
+    const max = items.length * cellSize;
+    // stay within max then make it opposite
+    // - JS handles negative mod poorly, fixed by adding max, then % by max again 
+    const position = (((currPos % max) + max) % max) * -1;
 
     function handlePrev() {
         setIndex(index - 1);
-        //rotateSlide();
     };
 
     function handleNext() {
         setIndex(index + 1);
-        //rotateSlide();
     };
-
-    //rotateSlide();
 
     return (
         <ThemeProvider 
@@ -98,8 +84,7 @@ const Slide:FunctionComponent<SlideProps> = ({width, height, items, isHorizontal
                     </>
                 }
                 <TransformContainer
-                    // JS handles negative mod poorly, fixed by adding max, then % by max again 
-                    transform={`${translateFn}(${((((cellSize * index) % (items.length * cellSize)) + (items.length * cellSize)) % (items.length * cellSize) * -1)}px)`}
+                    transform={`${translateFn}(${position}px)`}
                 >
                     {items.map((item, i) => {
                         const cellPosition = cellSize * i;

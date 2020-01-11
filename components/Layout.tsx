@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FunctionComponent } from 'react';
+import Head from 'next/head';
 
 import NavBar from './NavBar';
 
@@ -16,6 +17,9 @@ const PadTop = styled.div`
 const Layout:FunctionComponent = ({children}) => {
     return (
         <Container>
+            <Head>
+                <title>Spencer Hemstreet</title>
+            </Head>
             <NavBar />
             <PadTop >
                 {children}  

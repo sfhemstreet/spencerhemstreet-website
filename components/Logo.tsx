@@ -41,7 +41,7 @@ const Logo = () => {
                 className="Tilt"
             >
                 <Link href='/' >
-                    <Img alt="SH" src="/images/logo.png" />
+                    <Img alt="SH" src="/images/logo.png" tabIndex={0}/>
                 </Link>
             </Tilt>
         </Container>

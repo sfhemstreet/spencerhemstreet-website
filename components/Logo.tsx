@@ -3,7 +3,9 @@ import Link from 'next/link'
 import Tilt from 'react-tilt';
 
 const Container = styled.div`
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: translateZ(100px);
 `;
 

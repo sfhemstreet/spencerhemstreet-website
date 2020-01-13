@@ -44,11 +44,11 @@ const ImgText = styled.div`
 */
 export const ProjectImages = [
     <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_1'><Img src='/images/mapnweather_demo.gif' alt='demo of Map-N-Weather app'  /> <ImgText>Map-N-Weather</ImgText>   </ImgContainer>,
-    <ImgContainer key='proj_img_2'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
     <ImgContainer key='proj_img_3'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
+    <ImgContainer key='proj_img_1'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map-N-Weather</ImgText>   </ImgContainer>,
     <ImgContainer key='proj_img_4'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
-    <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
+    <ImgContainer key='proj_img_2'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
+    <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
 ];
 
 const ProjectContainer = styled.div`
@@ -120,36 +120,6 @@ export const ProjectSlides = [
         </Flex>
     </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${1}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
-        <P >
-            Map-N-Weather is responsive Map and Weather dashboard, used to get 5 day weather, and visualize wind, temperature, precipitation and cloud data for any given coordinates. 
-            Side navigation displays list of saved coordinates, and can be searched by type of data point, and by name. 
-            Currently features coordinates of my favorite camping and rock climbing areas. 
-        </P>
-        <P >
-            Utilizes TypeScript, React, Leaflet.js
-        </P>
-        <Flex>
-            <ProjImg src='/images/mapnweather_demo.gif' alt='demo of Map-N-Weather'/>
-        </Flex>   
-    </ProjectContainer>,
-    <ProjectContainer key={`ProjectSlide${2}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chat' >Chat</A></Bold>
-        <P >
-            Chat is web app instant messager that utilizes WebSockets for fast messaging.  
-        </P>
-        <P >
-            The demo front-end container asks the user for a username, then randomly assigns the user a dog avatar photo using Dog CEO Dog API.
-            Demo back-end node server pushes messages to all clients connected to it. 
-        </P>
-        <P >
-            Utilizes: TypeScript, React, Node, WebSockets
-        </P>
-        <Flex>
-            <ProjImg src='/images/chat_demo.png'  alt='demo of chat messages' />
-        </Flex>
-    </ProjectContainer>,
-    <ProjectContainer key={`ProjectSlide${3}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
         <P >
             TraderBot is an automated CrytoCurrency trader that reads data off of multiple websockets to make trades 24/7.
@@ -167,7 +137,21 @@ export const ProjectSlides = [
             <ProjImg src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
         </Flex>    
     </ProjectContainer>,
-    <ProjectContainer key={`ProjectSlide${4}`}>
+    <ProjectContainer key={`ProjectSlide${2}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
+        <P >
+            Map-N-Weather is responsive Map and Weather dashboard, used to get 5 day weather, and visualize wind, temperature, precipitation and cloud data for any given coordinates. 
+            Side navigation displays list of saved coordinates, and can be searched by type of data point, and by name. 
+            Currently features coordinates of my favorite camping and rock climbing areas. 
+        </P>
+        <P >
+            Utilizes TypeScript, React, Leaflet.js
+        </P>
+        <Flex>
+            <ProjImg src='/images/mapnweather_demo2.gif' alt='demo of Map-N-Weather'/>
+        </Flex>   
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${3}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Face Recognition</A></Bold>
         <P >
         A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users enter 
@@ -180,6 +164,22 @@ export const ProjectSlides = [
             <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
         </Flex>
     </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${4}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chat' >Chat</A></Bold>
+        <P >
+            Chat is web app instant messager that utilizes WebSockets for fast messaging.  
+        </P>
+        <P >
+            The demo front-end container asks the user for a username, then randomly assigns the user a dog avatar photo using Dog CEO Dog API.
+            Demo back-end node server pushes messages to all clients connected to it. 
+        </P>
+        <P >
+            Utilizes: TypeScript, React, Node, WebSockets
+        </P>
+        <Flex>
+            <ProjImg src='/images/chat_demo.png'  alt='demo of chat messages' />
+        </Flex>
+    </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${5}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/alien-invasion-js' >Alien invasion</A></Bold>
         <P>
@@ -189,7 +189,7 @@ export const ProjectSlides = [
         </P>
         <P className='mv0' >Don't believe it's possible to win? Watch me beat it <A href="https://www.youtube.com/embed/_u-ijAS8CWo" target='_blank' rel="noopener noreferrer" >here</A></P>
         <Flex>
-            <ProjImg src='/images/alieninvasion.gif' alt='play thru of ALien Invasion javascript game' />
+            <ProjImg src='/images/alieninvasion2.gif' alt='play thru of ALien Invasion javascript game' />
         </Flex>
     </ProjectContainer>
 ];

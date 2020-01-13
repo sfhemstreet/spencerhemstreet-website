@@ -220,6 +220,14 @@ interface ContactState {
     emailStatus: string
 }
 
+
+/**
+ * Contact Page
+ * - form for name, email, title, body
+ * - validates form entries
+ * - waits for email service response status with Loading component
+ * - gives send confirmation or error with alternate method of contact
+ */
 class Contact extends React.Component<ContactProps,ContactState>{
     constructor(props: ContactProps){
         super(props);
@@ -229,7 +237,7 @@ class Contact extends React.Component<ContactProps,ContactState>{
             title : '',
             body : '',
             highlightRed : new Array(4).fill(false),
-            emailStatus: 'writing',
+            emailStatus: 'writing', //'writing', 'loading', 'success', or 'failed'
         }
     }
     
@@ -265,6 +273,10 @@ class Contact extends React.Component<ContactProps,ContactState>{
         this.setState({ body : event.target.value, highlightRed : hlr})
     }
     
+    /**
+     * Check form elements for valid entries, highlightRed invalid entries, 
+     * send to sendEmail function if all are valid and await response.
+     */
     onSend = async() => {
         const {name,email,title,body, highlightRed} = this.state;
         let hlr = [...highlightRed];
@@ -304,8 +316,8 @@ class Contact extends React.Component<ContactProps,ContactState>{
             // Clipboard API not available
             return
         }
+        // typescript needs to know this is a Span Element
         const evt = event.target as HTMLSpanElement;
-
         const text = evt.innerText;
         try {
             await navigator.clipboard.writeText(text)
@@ -322,7 +334,7 @@ class Contact extends React.Component<ContactProps,ContactState>{
                     <Transition
                         in={true}
                         timeout={{
-                            appear: 150,
+                            appear: 120,
                         }}
                         appear={true}
                     >

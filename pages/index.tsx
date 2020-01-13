@@ -78,7 +78,7 @@ class HomePage extends React.Component<any, HomePageState>{
                         <Transition
                             in={isSelected && hasImagesExited}
                             timeout={{
-                                enter: 150,
+                                enter: 120,
                                 exit: 500,
                             }}
                             onExited={this.onProjectExited}

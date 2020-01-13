@@ -24,6 +24,10 @@ const P = styled.p`
     margin-right: auto;
 `;
 
+const Margin = styled.div`
+    margin: 20px 0px;
+`;
+
 function About(){
     
     const images = [
@@ -38,7 +42,7 @@ function About(){
                 <Transition
                     in={true}
                     timeout={{
-                        appear: 150,
+                        appear: 120,
                     }}
                     appear={true}
                 >
@@ -46,20 +50,21 @@ function About(){
                     <Fade state={state}>
                         <Container>
                             <P>
-                                Hello! I'm Spencer, and I am Front-End developer based out of San Francisco.
+                                Hello! I'm Spencer, and I am front-end developer based out of San Francisco.
                             </P>
                             <P>
                                 I have extensive knowledge and experience with JavaScript  
                                 and popular frameworks/libraries like React, Redux, and Next. 
                                 I have built full-stack applications using Node.js and Express, 
                                 and have experience with PostgreSQL, MySQL, and MongoDB.
-                                I am a big fan of TypeScript and the KISS method.
                             </P>
                             <P >
                                 In my free time I enjoy rock climbing, 
                                 playing guitar, hiking, and watching scary movies.  
-                            </P>  
-                            <PhotoSlideShow photos={images} />  
+                            </P> 
+                            <Margin>
+                                <PhotoSlideShow photos={images} />
+                            </Margin>   
                         </Container>
                     </Fade>)
                 }

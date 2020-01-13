@@ -8,10 +8,6 @@ interface PhotoProps {
     height: string
 }
 
-const Margin = styled.div`
-    margin: 15px 0px;
-`;
-
 const PhotoContainer = styled.div<PhotoProps>`
     width: ${props => props.width};
     height: ${props => props.height};
@@ -54,7 +50,7 @@ const PhotoPreview: FunctionComponent<PhotoPreviewProps> = ({photos}) => {
         const items = photos.map(photo => <Img src={photo.src} alt={photo.alt} />);
 
         return (
-            <Margin>
+            <div>
                 <PhotoContainer
                     width={`${width}px`}
                     height={`${height}px`}
@@ -67,7 +63,7 @@ const PhotoPreview: FunctionComponent<PhotoPreviewProps> = ({photos}) => {
                         startIndex={1}
                     />
                 </PhotoContainer>    
-            </Margin>
+            </div>
         )
     }
     else {

@@ -5,7 +5,6 @@ interface Email {
     body: string
 }
 
-
 /**
  * - send an email to email server
  * @param {Email} email - email object
@@ -26,7 +25,7 @@ export default async function sendEmail(email: Email){
         })
     }).catch(error => {
         // failed to fetch
-        console.log('fetch error', error)
+        // console.log('fetch error', error)
     });
 
     if(!response)
@@ -35,11 +34,9 @@ export default async function sendEmail(email: Email){
     const res = await response.json()
     
     if(res === 'Success'){
-        console.log('emailed');
         return true;
     }
     else{
-        console.log('email error', res)
         return false;
     }
 }

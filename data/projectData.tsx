@@ -44,10 +44,10 @@ const ImgText = styled.div`
 */
 export const ProjectImages = [
     <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_3'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_1'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map-N-Weather</ImgText>   </ImgContainer>,
-    <ImgContainer key='proj_img_4'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
-    <ImgContainer key='proj_img_2'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
+    <ImgContainer key='proj_img_1'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
+    <ImgContainer key='proj_img_2'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map-N-Weather</ImgText>   </ImgContainer>,
+    <ImgContainer key='proj_img_3'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
+    <ImgContainer key='proj_img_4'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
     <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
 ];
 
@@ -91,6 +91,9 @@ export const A = styled.a`
     }
 `;
 
+const Yellow = styled(A)`
+    color: yellow;
+`;
 
 /**
  * Project Slides
@@ -102,9 +105,6 @@ export const ProjectSlides = [
         <P >
             Chore is a web app for organizing, assigning, and keeping track of chores in a household. 
             It allows users to create groups, invite their roommates, grant individual member permissions, and create / assign chores. 
-        </P>
-        <P >
-             
         </P>
         <P >
             <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' title="Front-End GitHub repo">Front-End:</A> React, Redux, React-Router, Tachyons 
@@ -185,7 +185,7 @@ export const ProjectSlides = [
         <P>
             Alien Invasion is a web game that pays homage to the classic “Space Invaders” arcade game. 
             The game uses vanilla JavaScript for gameplay and logic, with HTML5 Canvas to render and manipulate the DOM. 
-            <A href='https://sfhemstreet.github.io/alien-invasion-js/' target='_blank' rel="noopener noreferrer" > Play it!</A> 
+            <Yellow href='https://sfhemstreet.github.io/alien-invasion-js/' target='_blank' rel="noopener noreferrer" > Play it!</Yellow> 
         </P>
         <P className='mv0' >Don't believe it's possible to win? Watch me beat it <A href="https://www.youtube.com/embed/_u-ijAS8CWo" target='_blank' rel="noopener noreferrer" >here</A></P>
         <Flex>

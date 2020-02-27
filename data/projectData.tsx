@@ -140,25 +140,25 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${2}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
         <P >
-            Map-N-Weather is responsive Map and Weather dashboard, used to get 5 day weather, and visualize wind, temperature, precipitation and cloud data for any given coordinates. 
-            Side navigation displays list of saved coordinates, and can be searched by type of data point, and by name. 
-            Currently features coordinates of my favorite camping and rock climbing areas. 
+            Map and Weather is responsive map and weather dashboard, used to get 5-day weather reports, while visualizing wind, temperature, precipitation, and cloud data for any given coordinates. 
+            The expandable sidebar displays a selectable list of saved coordinates, which can be filtered by type of data point, and by name. 
+            The dahboard currently features coordinates of my favorite camping and rock climbing areas. 
         </P>
         <P >
-            Utilizes TypeScript, React, Leaflet.js
+            Utilizes TypeScript, React.js, Leaflet.js
         </P>
         <Flex>
             <ProjImg src='/images/mapnweather_demo2.gif' alt='demo of Map-N-Weather'/>
         </Flex>   
     </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${3}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Face Recognition</A></Bold>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Facial Recognition</A></Bold>
         <P >
-        A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users enter 
+        A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users login or sign up, and enter 
         a URL to an image to see if the AI can recognize human faces. Faces detected in the photo are boxed and highlighted. 
         </P>
         <P >
-        Utilizes: React, Node.js, Express, PostgreSQL
+        Utilizes: React.js, Node.js, Express.js, PostgreSQL
         </P>
         <Flex>
             <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
@@ -167,14 +167,14 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${4}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chat' >Chat</A></Bold>
         <P >
-            Chat is web app instant messager that utilizes WebSockets for fast messaging.  
+            Chat is a web application instant messenger that utilizes WebSockets for fast messaging.  
         </P>
         <P >
             The demo front-end container asks the user for a username, then randomly assigns the user a dog avatar photo using Dog CEO Dog API.
-            Demo back-end node server pushes messages to all clients connected to it. 
+            Demo back-end node server pushes messages to all users connected to it. 
         </P>
         <P >
-            Utilizes: TypeScript, React, Node, WebSockets
+            Utilizes: TypeScript, React.js, Node.js, WebSockets
         </P>
         <Flex>
             <ProjImg src='/images/chat_demo.png'  alt='demo of chat messages' />

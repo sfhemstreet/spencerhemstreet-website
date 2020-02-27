@@ -107,10 +107,10 @@ export const ProjectSlides = [
             It allows users to create groups, invite their roommates, grant individual member permissions, and create / assign chores. 
         </P>
         <P >
-            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' title="Front-End GitHub repo">Front-End:</A> React, Redux, React-Router, Tachyons 
+            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' title="Front-End GitHub repo">Front-End:</A> React.js, Redux.js, React-Router, Tachyons 
         </P>
         <P >
-            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-api' title="Back-End GitHub repo">Back-End: </A>Node.js, Express, Bcrypt, JSON Web Tokens, PostgreSQL.
+            <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-api' title="Back-End GitHub repo">Back-End: </A>Node.js, Express.js, Bcrypt, JSON Web Tokens, PostgreSQL
         </P>
         <P >
             <A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-email' title="Email GitHub repo">Email: </A>Node.js, Express, Twilio Send Grid

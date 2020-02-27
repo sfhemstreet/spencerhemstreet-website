@@ -138,11 +138,11 @@ export const ProjectSlides = [
         </Flex>    
     </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${2}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map-N-Weather</A></Bold>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map and Weather Dashboard</A></Bold>
         <P >
             Map and Weather is responsive map and weather dashboard, used to get 5-day weather reports, while visualizing wind, temperature, precipitation, and cloud data for any given coordinates. 
             The expandable sidebar displays a selectable list of saved coordinates, which can be filtered by type of data point, and by name. 
-            The dahboard currently features coordinates of my favorite camping and rock climbing areas. 
+            The dashboard currently features a list of my favorite camping and rock climbing areas. 
         </P>
         <P >
             Utilizes TypeScript, React.js, Leaflet.js

@@ -45,7 +45,7 @@ const ImgText = styled.div`
 export const ProjectImages = [
     <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText>      </ImgContainer>,
     <ImgContainer key='proj_img_1'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_2'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map-N-Weather</ImgText>   </ImgContainer>,
+    <ImgContainer key='proj_img_2'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map and Weather Dashboard</ImgText>   </ImgContainer>,
     <ImgContainer key='proj_img_3'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
     <ImgContainer key='proj_img_4'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
     <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
@@ -103,7 +103,7 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${0}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/chore-app' >Chore</A></Bold>
         <P >
-            Chore is a web app for organizing, assigning, and keeping track of chores in a household. 
+            Chore is a web application for organizing, assigning, and keeping track of chores in a household. 
             It allows users to create groups, invite their roommates, grant individual member permissions, and create / assign chores. 
         </P>
         <P >
@@ -122,7 +122,7 @@ export const ProjectSlides = [
     <ProjectContainer key={`ProjectSlide${1}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
         <P >
-            TraderBot is an automated CrytoCurrency trader that reads data off of multiple websockets to make trades 24/7.
+            TraderBot is an automated cryptocurrency trader that reads data off of multiple websockets to make trades 24/7.
         </P>
         <P >
             Written in Python, TraderBot uses Asyncio to constantly stream on-chain data from Token Analyst's websocket 

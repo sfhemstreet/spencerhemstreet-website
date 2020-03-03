@@ -46,7 +46,7 @@ export const ProjectImages = [
     <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText></ImgContainer>,
     <ImgContainer key='proj_img_1'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map and Weather Dashboard</ImgText>   </ImgContainer>,
     <ImgContainer key='proj_img_2'><Img src='/images/rps_demo1.gif'      alt='demo Rock Paper Scissors'  />    <ImgText>Rock Paper Scissors</ImgText></ImgContainer>,
-    <ImgContainer key='proj_img_3'><Img src='/images/simple_weight_demo_short.gif' alt='demo of Simple Weight app'  /><ImgText>Simple Weight</ImgText>      </ImgContainer>,
+    <ImgContainer key='proj_img_3'><Img src='/images/simple_weight_demo.jpg' alt='demo of Simple Weight app'  /><ImgText>Simple Weight</ImgText>      </ImgContainer>,
     <ImgContainer key='proj_img_4'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
     <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>,
     <ImgContainer key='proj_img_6'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,

@@ -43,12 +43,14 @@ const ImgText = styled.div`
 * - array of project images with titles
 */
 export const ProjectImages = [
-    <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_1'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
-    <ImgContainer key='proj_img_2'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map and Weather Dashboard</ImgText>   </ImgContainer>,
-    <ImgContainer key='proj_img_3'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
+    <ImgContainer key='proj_img_0'><Img src='/images/chore_demo2.png'      alt='demo of Chore app'  />         <ImgText>Chore App </ImgText></ImgContainer>,
+    <ImgContainer key='proj_img_1'><Img src='/images/mapnweather_demo.jpg' alt='demo of Map-N-Weather app'  /> <ImgText>Map and Weather Dashboard</ImgText>   </ImgContainer>,
+    <ImgContainer key='proj_img_2'><Img src='/images/rps_demo1.gif'      alt='demo Rock Paper Scissors'  />    <ImgText>Rock Paper Scissors</ImgText></ImgContainer>,
+    <ImgContainer key='proj_img_3'><Img src='/images/simple_weight_demo_short.gif' alt='demo of Simple Weight app'  /><ImgText>Simple Weight</ImgText>      </ImgContainer>,
     <ImgContainer key='proj_img_4'><Img src='/images/chat_demo.png'        alt='demo of Chat app'  />          <ImgText>Chat </ImgText>           </ImgContainer>,
-    <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>
+    <ImgContainer key='proj_img_5'><Img src='/images/alieninvasion2.gif'    alt='play thru of ALien Invasion javascript game' /><ImgText>Alien Invasion</ImgText>  </ImgContainer>,
+    <ImgContainer key='proj_img_6'><Img src='/images/traderbot_demo.png'   alt='demo of TraderBot'  />         <ImgText>TraderBot </ImgText>      </ImgContainer>,
+    <ImgContainer key='proj_img_7'><Img src='/images/face_recog_demo.png'  alt='demo of Face Recognition app'/><ImgText>Face Recognition</ImgText></ImgContainer>,
 ];
 
 const ProjectContainer = styled.div`
@@ -120,24 +122,6 @@ export const ProjectSlides = [
         </Flex>
     </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${1}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
-        <P >
-            TraderBot is an automated cryptocurrency trader that reads data off of multiple websockets to make trades 24/7.
-        </P>
-        <P >
-            Written in Python, TraderBot uses Asyncio to constantly stream on-chain data from Token Analyst's websocket 
-            as well as trade and price data from BitMEX's websocket. 
-            Project was written for traders with little coding knowledge and contains abstractions for easiliy reading data 
-            and trigger trades on the BitMEX exchange. 
-        </P>
-        <P >
-            Utilizes: Asyncio, WebSockets
-        </P>
-        <Flex>
-            <ProjImg src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
-        </Flex>    
-    </ProjectContainer>,
-    <ProjectContainer key={`ProjectSlide${2}`}>
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map and Weather Dashboard</A></Bold>
         <P >
             Map and Weather is responsive map and weather dashboard, used to get 5-day weather reports, while visualizing wind, temperature, precipitation, and cloud data for any given coordinates. 
@@ -151,17 +135,33 @@ export const ProjectSlides = [
             <ProjImg src='/images/mapnweather_demo2.gif' alt='demo of Map-N-Weather'/>
         </Flex>   
     </ProjectContainer>,
-    <ProjectContainer key={`ProjectSlide${3}`}>
-        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Facial Recognition</A></Bold>
-        <P >
-        A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users login or sign up, and enter 
-        a URL to an image to see if the AI can recognize human faces. Faces detected in the photo are boxed and highlighted. 
+    <ProjectContainer key={`ProjectSlide${2}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/rock_paper_scissors' >Rock Paper Scissors</A></Bold>
+        <P>
+            Rock Paper Scissors game, inspired by <A target='_blank' rel="noopener noreferrer" href='https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH' >Frontend Mentor's Rock Paper Scissors challenge.</A>
+            The challenge gives you the design and you code the product. The design was followed to be pixel perfect. The game can be played two ways, the normal 'Rock Paper Scissors' or the 'Rock Paper Scissors Lizard Spock' version.
+            <Yellow href='https://rock-paper-scissors.spencerhemstreet.now.sh/' target='_blank' rel="noopener noreferrer" >Play it!</Yellow> 
         </P>
         <P >
-        Utilizes: React.js, Node.js, Express.js, PostgreSQL
+            Utilizes: TypeScript, Next.js, React.js, styled-components
         </P>
         <Flex>
-            <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
+            <ProjImg src='/images/rps_demo_long.gif' alt='play thru of Rock Paper Scissors javascript game' />
+        </Flex>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${3}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/simple_weight' >Simple Weight</A></Bold>
+        <P>
+            Simple Weight is a mobile application for keeping track of your daily weight and calories. 
+            The application was build using the Flutter framework, and works on both Android and iOS devices. 
+            It features a graph to visualize how calorie intake affects weight, allows users to set goals, stores all data locally on a SQLite database,
+             and reacts to if the device is in Dark or Light mode. 
+        </P>
+        <P >
+            Utilizes: Dart, Flutter, Provider, sqflite
+        </P>
+        <Flex>
+            <ProjImg src='/images/simple_weight_demo_long.gif' alt='demo of Simple Weight application' />
         </Flex>
     </ProjectContainer>,
     <ProjectContainer key={`ProjectSlide${4}`}>
@@ -191,7 +191,38 @@ export const ProjectSlides = [
         <Flex>
             <ProjImg src='/images/alieninvasion2.gif' alt='play thru of ALien Invasion javascript game' />
         </Flex>
-    </ProjectContainer>
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${6}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/traderbot' >TraderBot</A></Bold>
+        <P >
+            TraderBot is an automated cryptocurrency trader that reads data off of multiple websockets to make trades 24/7.
+        </P>
+        <P >
+            Written in Python, TraderBot uses Asyncio to constantly stream on-chain data from Token Analyst's websocket 
+            as well as trade and price data from BitMEX's websocket. 
+            Project was written for traders with little coding knowledge and contains abstractions for easiliy reading data 
+            and trigger trades on the BitMEX exchange. 
+        </P>
+        <P >
+            Utilizes: Asyncio, WebSockets
+        </P>
+        <Flex>
+            <ProjImg src='/images/traderbot_demo.png' alt='demo of trader bot'/> 
+        </Flex>    
+    </ProjectContainer>,
+    <ProjectContainer key={`ProjectSlide${7}`}>
+        <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/face-recognition-app' >Facial Recognition</A></Bold>
+        <P >
+        A web application that utilizes Clarifai's facial recognition API to detect human faces in photos. Users login or sign up, and enter 
+        a URL to an image to see if the AI can recognize human faces. Faces detected in the photo are boxed and highlighted. 
+        </P>
+        <P >
+        Utilizes: React.js, Node.js, Express.js, PostgreSQL
+        </P>
+        <Flex>
+            <ProjImg src='/images/face_recog_demo.png' alt='demo of face recognition' />
+        </Flex>
+    </ProjectContainer>,
 ];
 
 // <iframe className='center' title='AlienInvasionPlayThru' min-width='370' width='370' max-width='370' height='550' src="https://sfhemstreet.github.io/alien-invasion-js/" frameBorder="0" ></iframe>

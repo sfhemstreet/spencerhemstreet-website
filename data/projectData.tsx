@@ -125,6 +125,8 @@ export const ProjectSlides = [
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/MapNWeather' >Map and Weather Dashboard</A></Bold>
         <P >
             Map and Weather is responsive map and weather dashboard, used to get 5-day weather reports, while visualizing wind, temperature, precipitation, and cloud data for any given coordinates. 
+        </P>
+        <P>
             The expandable sidebar displays a selectable list of saved coordinates, which can be filtered by type of data point, and by name. 
             The dashboard currently features a list of my favorite camping and rock climbing areas. 
         </P>
@@ -139,8 +141,11 @@ export const ProjectSlides = [
         <Bold><A target='_blank' rel="noopener noreferrer" href='https://github.com/sfhemstreet/rock_paper_scissors' >Rock Paper Scissors</A></Bold>
         <P>
             Rock Paper Scissors game, inspired by <A target='_blank' rel="noopener noreferrer" href='https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH' >Frontend Mentor's Rock Paper Scissors challenge.</A>
-            The challenge gives you the design and you code the product. The design was followed to be pixel perfect. The game can be played two ways, the normal 'Rock Paper Scissors' or the 'Rock Paper Scissors Lizard Spock' version.
-            <Yellow href='https://rock-paper-scissors.spencerhemstreet.now.sh/' target='_blank' rel="noopener noreferrer" >Play it!</Yellow> 
+            The challenge gives you the design and you code the product. The design was followed to be pixel perfect. 
+        </P>
+        <P>
+            The game can be played two ways, the normal 'Rock Paper Scissors' or the 'Rock Paper Scissors Lizard Spock' version.
+            <Yellow href='https://rock-paper-scissors.spencerhemstreet.now.sh/' target='_blank' rel="noopener noreferrer" > Play it!</Yellow> 
         </P>
         <P >
             Utilizes: TypeScript, Next.js, React.js, styled-components

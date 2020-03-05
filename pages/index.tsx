@@ -47,6 +47,13 @@ class HomePage extends React.Component<any, HomePageState>{
 
     onSelectImage = (index: number) => {
         this.setState({ image : index, isSelected: true, hasProjectExited: false, hasImagesExited: false });
+
+        if(typeof window !== 'undefined'){
+            window.scrollTo({
+                top: 0, 
+                behavior: 'smooth'
+            });
+        }
     }
     
     closeProject = () => {
@@ -62,7 +69,7 @@ class HomePage extends React.Component<any, HomePageState>{
     }
        
     render(){
-        const {image, hasClicked, hasImagesExited, hasProjectExited, isSelected} = this.state;
+        const {image, hasImagesExited, hasProjectExited, isSelected} = this.state;
 
         const renderProjectImages = ProjectImages.map((image, index) => {
             return (

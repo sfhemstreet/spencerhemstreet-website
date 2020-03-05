@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const KirkwoodBackground = styled.div`
     height: 100%;
-    height: 100vh;
+    height: 135vh;
     margin: 0;
     padding: 0;
 	position: relative;
@@ -10,7 +10,7 @@ export const KirkwoodBackground = styled.div`
     background-position: right center;
 	background-size: cover;
 	background-color: black;
-	background-repeat: repeat;
+	background-repeat: no-repeat;
 
     @media only screen and (min-width: 992px){
         background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url("/images/tankkirkwoodsunset.jpg");

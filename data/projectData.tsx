@@ -244,7 +244,7 @@ export const ProjectSlides = [
     </P>
     <P>Utilizes TypeScript, React.js, Leaflet.js</P>
     <Flex>
-      <ProjVideo autoPlay loop muted playsinline>
+      <ProjVideo autoPlay loop muted >
         <source src="/images/mapnweather_demo.mp4" type="video/mp4" />
       </ProjVideo>
     </Flex>
@@ -285,7 +285,7 @@ export const ProjectSlides = [
     </P>
     <P>Utilizes: TypeScript, Next.js, React.js, styled-components</P>
     <Flex>
-      <ProjVideo autoPlay loop muted playsinline>
+      <ProjVideo autoPlay loop muted >
           <source src="/images/rock_paper_scissors_short_demo.mp4" type="video/mp4" />
       </ProjVideo>
     </Flex>
@@ -374,7 +374,7 @@ export const ProjectSlides = [
       </A>
     </P>
     <Flex>
-      <ProjVideo autoPlay loop muted playsinline>
+      <ProjVideo autoPlay loop muted >
           <source src="/images/alien_invasion_demo.mp4" type="video/mp4"/>
       </ProjVideo>
     </Flex>

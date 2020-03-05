@@ -266,9 +266,9 @@ export const ProjectSlides = [
         rel="noopener noreferrer"
         href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH"
       >
-        Frontend Mentor's Rock Paper Scissors challenge.
+        Frontend Mentor's Rock Paper Scissors challenge. 
       </A>
-      The challenge gives you the design and you code the product. The design
+       The challenge gives you the design and you code the product. The design
       was followed to be pixel perfect.
     </P>
     <P>
@@ -305,8 +305,7 @@ export const ProjectSlides = [
       weight and calories. The application was build using the Flutter
       framework, and works on both Android and iOS devices. It features a graph
       to visualize how calorie intake affects weight, allows users to set goals,
-      stores all data locally on a SQLite database, and reacts to if the device
-      is in Dark or Light mode.
+      stores all data locally on a SQLite database, and displays in Dark or Light mode based on the device.
     </P>
     <P>Utilizes: Dart, Flutter, Provider, sqflite</P>
     <Flex>
@@ -353,8 +352,8 @@ export const ProjectSlides = [
     </Bold>
     <P>
       Alien Invasion is a web game that pays homage to the classic “Space
-      Invaders” arcade game. The game uses vanilla JavaScript for gameplay and
-      logic, with HTML5 Canvas to render and manipulate the DOM.
+      Invaders” arcade game. The game engine was written in vanilla JavaScript, 
+      and drawn on HTML5 Canvas.
       <Yellow
         href="https://sfhemstreet.github.io/alien-invasion-js/"
         target="_blank"

@@ -244,9 +244,7 @@ export const ProjectSlides = [
     </P>
     <P>Utilizes TypeScript, React.js, Leaflet.js</P>
     <Flex>
-      <ProjVideo autoPlay loop muted >
-        <source src="/images/mapnweather_demo.mp4" type="video/mp4" />
-      </ProjVideo>
+      <ProjImg src="/images/mapnweather_demo2.gif" alt="Map and Weather Dashboard demo"/>
     </Flex>
   </ProjectContainer>,
   <ProjectContainer key={`ProjectSlide${2}`}>
@@ -285,9 +283,7 @@ export const ProjectSlides = [
     </P>
     <P>Utilizes: TypeScript, Next.js, React.js, styled-components</P>
     <Flex>
-      <ProjVideo autoPlay loop muted >
-          <source src="/images/rock_paper_scissors_short_demo.mp4" type="video/mp4" />
-      </ProjVideo>
+      <ProjImg src="/images/rock_paper_scissors2.gif" alt="Rock Paper Scissors demo"/>
     </Flex>
   </ProjectContainer>,
   <ProjectContainer key={`ProjectSlide${3}`}>
@@ -374,9 +370,7 @@ export const ProjectSlides = [
       </A>
     </P>
     <Flex>
-      <ProjVideo autoPlay loop muted >
-          <source src="/images/alien_invasion_demo.mp4" type="video/mp4"/>
-      </ProjVideo>
+      <ProjImg src="/images/alieninvasion2.gif" alt="Alien Invasion demo"/>
     </Flex>
   </ProjectContainer>,
   <ProjectContainer key={`ProjectSlide${6}`}>
